@@ -1,3 +1,8 @@
 #!/usr/bin/env node
 
-require('../').build();
+require('../').build(function(er) {
+  if (!er) {
+    exit(0);
+  }
+  exit(1);
+});

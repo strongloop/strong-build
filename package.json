@@ -13,11 +13,15 @@
   "readmeFilename": "README.md",
   "main": "index.js",
   "scripts": {
-    "test": "tap ./test"
+    "test": "tap ./test/test-*.js"
   },
   "bin": {
     "sl-build": "./bin/slb",
     "slb": "./bin/slb"
+  },
+  "dependencies": {
+    "debug": "^0.8.1",
+    "shelljs": "^0.3.0"
   },
   "devDependencies": {
     "tap": "^0.4.9"
