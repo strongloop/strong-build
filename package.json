@@ -1,0 +1,19 @@
+{
+  "name": "strong-build",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strongloop/strong-build.git"
+  },
+  "author": "engineering@strongloop.com",
+  "license": {
+    "name": "Dual MIT/StrongLoop",
+    "url": "https://github.com/strongloop/strong-build/blob/master/LICENSE"
+  },
+  "readmeFilename": "README.md",
+  "main": "index.js",
+  "bin": {
+    "sl-build": "./bin/slb",
+    "slb": "./bin/slb"
+  }
+}
