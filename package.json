@@ -12,8 +12,14 @@
   },
   "readmeFilename": "README.md",
   "main": "index.js",
+  "scripts": {
+    "test": "tap ./test"
+  },
   "bin": {
     "sl-build": "./bin/slb",
     "slb": "./bin/slb"
+  },
+  "devDependencies": {
+    "tap": "^0.4.9"
   }
 }
