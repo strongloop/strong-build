@@ -1,10 +1,7 @@
 var debug = require('debug')('strong-build');
+var Parser = require('posix-getopt').BasicParser;
 var path = require('path');
 var shell = require('shelljs');
-
-var $0 = process.env.SLC_COMMAND ?
-  'slc ' + process.env.SLC_COMMAND :
-  path.basename(process.argv[1]);
 
 function printHelp($0, prn) {
   prn('usage: %s [options]', $0);
@@ -36,20 +33,32 @@ function reportRunError(er, output) {
   }
 }
 
-exports.build = function build(callback) {
-  var commandName = process.argv[2];
+exports.build = function build(argv, callback) {
+  var $0 = process.env.SLC_COMMAND ?
+    'slc ' + process.env.SLC_COMMAND :
+    path.basename(argv[1]);
+  var parser = new Parser(':v(version)h(help)', argv);
+  var option;
 
-  if (['--version', '-v'].indexOf(commandName) != -1) {
-    console.log(require('./package.json').version);
-    return callback();
+  while ((option = parser.getopt()) !== undefined) {
+    switch (option.option) {
+      case 'v':
+        console.log(require('./package.json').version);
+        return callback();
+      case 'h':
+        printHelp($0, console.log);
+        return callback();
+      default:
+        console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
+          option.optopt, $0);
+        return callback(Error('usage'));
+    }
   }
 
-  if (['--help', '-h'].indexOf(commandName) != -1) {
-    printHelp($0, console.log);
-    return callback();
+  if (parser.optind() !== argv.length) {
+    console.error('Invalid usage (extra arguments), try `%s --help`.');
+    return callback(Error('usage'));
   }
-
-  // Ignore unimplemented arguments for now...
 
   doNpmInstall();
 
