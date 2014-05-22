@@ -14,11 +14,15 @@ function printHelp($0, prn) {
   prn('compiling any binary addons. Build and install scripts should be run');
   prn('on the deployment server using `npm rebuild; npm install`.');
   prn('');
+  prn('Pack output is a tar file in the format produced by `npm pack` and');
+  prn('accepted by `npm install`.');
+  prn('');
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
   prn('  -v,--version    Print version and exit.');
   prn('  -i,--install    Install dependencies (without scripts, by default).');
   prn('  --scripts       If installing, run scripts (to build addons).');
+  prn('  -p,--pack       Pack into a publishable archive (with dependencies)');
 }
 
 function runCommand(cmd, callback) {
@@ -46,11 +50,13 @@ exports.build = function build(argv, callback) {
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
   var parser = new Parser(
-    ':v(version)h(help)s(scripts)i(install)',
+    ':v(version)h(help)s(scripts)i(install)p(pack)',
     argv);
   var option;
   var install;
   var scripts;
+  var pack;
+
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
@@ -65,6 +71,9 @@ exports.build = function build(argv, callback) {
         break;
       case 'i':
         install = true;
+        break;
+      case 'p':
+        pack = true;
         break;
       default:
         console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
@@ -88,6 +97,10 @@ exports.build = function build(argv, callback) {
     steps.push(doNpmInstall);
   }
 
+  if (pack) {
+    steps.push(doNpmPack);
+  }
+
   vasync.pipeline({funcs: steps}, callback);
 
   function doNpmInstall(_, callback) {
@@ -109,6 +122,16 @@ exports.build = function build(argv, callback) {
     runCommand('npm run build', function(er, output) {
       if (er) {
         console.error('%s: error in package build script', $0);
+        reportRunError(er, output);
+      }
+      return callback(er);
+    });
+  }
+
+  function doNpmPack(_, callback) {
+    runCommand('npm pack', function(er, output) {
+      if (er) {
+        console.error('%s: error packing an archive', $0);
         reportRunError(er, output);
       }
       return callback(er);

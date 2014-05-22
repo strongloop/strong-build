@@ -1,4 +1,3 @@
-// build example with --install
 require('./build-example')(['-i', '--scripts'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);

@@ -1,7 +1,8 @@
 module.exports = function buildExample(args, callback) {
   assert = require('assert');
   debug = require('debug')('strong-build:test');
-  var path = require('path');
+  path = require('path');
+  util = require('util');
 
   require('shelljs/global');
 
