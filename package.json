@@ -13,7 +13,7 @@
   "readmeFilename": "README.md",
   "main": "index.js",
   "scripts": {
-    "test": "tap ./test/test-*.js"
+    "test": "tap --timeout=300 ./test/test-*.js"
   },
   "bin": {
     "sl-build": "./bin/slb",
@@ -22,7 +22,8 @@
   "dependencies": {
     "debug": "^0.8.1",
     "shelljs": "^0.3.0",
-    "posix-getopt": "^1.0.0"
+    "posix-getopt": "^1.0.0",
+    "vasync": "^1.4.3"
   },
   "devDependencies": {
     "tap": "^0.4.9",

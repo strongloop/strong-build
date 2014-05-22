@@ -1,16 +1,24 @@
+var assert = require('assert');
 var debug = require('debug')('strong-build');
 var Parser = require('posix-getopt').BasicParser;
 var path = require('path');
 var shell = require('shelljs');
+var vasync = require('vasync');
 
 function printHelp($0, prn) {
   prn('usage: %s [options]', $0);
   prn('');
   prn('Build a node application archive.');
   prn('');
+  prn('Archives are built without running scripts (by default) to avoid');
+  prn('compiling any binary addons. Build and install scripts should be run');
+  prn('on the deployment server using `npm rebuild; npm install`.');
+  prn('');
   prn('Options:');
-  prn('  -h,--help          Print this message and exit.');
-  prn('  -v,--version       Print version and exit.');
+  prn('  -h,--help       Print this message and exit.');
+  prn('  -v,--version    Print version and exit.');
+  prn('  -i,--install    Install dependencies (without scripts, by default).');
+  prn('  --scripts       If installing, run scripts (to build addons).');
 }
 
 function runCommand(cmd, callback) {
@@ -37,8 +45,12 @@ exports.build = function build(argv, callback) {
   var $0 = process.env.SLC_COMMAND ?
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
-  var parser = new Parser(':v(version)h(help)', argv);
+  var parser = new Parser(
+    ':v(version)h(help)s(scripts)i(install)',
+    argv);
   var option;
+  var install;
+  var scripts;
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
@@ -48,6 +60,12 @@ exports.build = function build(argv, callback) {
       case 'h':
         printHelp($0, console.log);
         return callback();
+      case 's':
+        scripts = true;
+        break;
+      case 'i':
+        install = true;
+        break;
       default:
         console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
           option.optopt, $0);
@@ -60,29 +78,40 @@ exports.build = function build(argv, callback) {
     return callback(Error('usage'));
   }
 
-  doNpmInstall();
+  if (!install && !pack) {
+    install = pack = true;
+  }
 
-  function doNpmInstall() {
-    runCommand('npm install --ignore-scripts', function(er, output) {
+  var steps = [];
+
+  if (install) {
+    steps.push(doNpmInstall);
+  }
+
+  vasync.pipeline({funcs: steps}, callback);
+
+  function doNpmInstall(_, callback) {
+    var npmInstall = 'npm install';
+    if (!scripts) {
+      npmInstall += ' --ignore-scripts';
+    }
+    runCommand(npmInstall, function(er, output) {
       if (er) {
         console.error('%s: error during dependency installation', $0);
         reportRunError(er, output);
         return callback(er);
       }
-
-      return doBuildScript();
+      return doBuildScript(_, callback);
     });
   }
 
-  function doBuildScript() {
+  function doBuildScript(_, callback) {
     runCommand('npm run build', function(er, output) {
       if (er) {
         console.error('%s: error in package build script', $0);
         reportRunError(er, output);
-        return callback(er);
       }
-
-      return callback();
+      return callback(er);
     });
   }
 };
