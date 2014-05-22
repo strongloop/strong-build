@@ -1,9 +1,20 @@
 var debug = require('debug')('strong-build');
+var path = require('path');
 var shell = require('shelljs');
 
-var NAME = process.env.SLC_COMMAND ?
+var $0 = process.env.SLC_COMMAND ?
   'slc ' + process.env.SLC_COMMAND :
-  'slb';
+  path.basename(process.argv[1]);
+
+function printHelp($0, prn) {
+  prn('usage: %s [options]', $0);
+  prn('');
+  prn('Build a node application archive.');
+  prn('');
+  prn('Options:');
+  prn('  -h,--help          Print this message and exit.');
+  prn('  -v,--version       Print version and exit.');
+}
 
 function runCommand(cmd, callback) {
   debug('run command: %s', cmd);
@@ -19,13 +30,27 @@ function runCommand(cmd, callback) {
 function reportRunError(er, output) {
   if (!er) return;
 
-  console.error("%s: failed to run `%s`", NAME, er.message);
+  console.error("%s: failed to run `%s`", $0, er.message);
   if (output && output !== '') {
     process.stderr.write(output);
   }
 }
 
 exports.build = function build(callback) {
+  var commandName = process.argv[2];
+
+  if (['--version', '-v'].indexOf(commandName) != -1) {
+    console.log(require('./package.json').version);
+    return callback();
+  }
+
+  if (['--help', '-h'].indexOf(commandName) != -1) {
+    printHelp($0, console.log);
+    return callback();
+  }
+
+  // Ignore unimplemented arguments for now...
+
   runCommand('npm install --ignore-scripts', function(er, output) {
     if (er) {
       reportRunError(er, output);
