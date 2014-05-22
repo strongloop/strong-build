@@ -2,7 +2,7 @@
 
 require('../').build(function(er) {
   if (!er) {
-    exit(0);
+    process.exit(0);
   }
-  exit(1);
+  process.exit(1);
 });

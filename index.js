@@ -30,7 +30,7 @@ function runCommand(cmd, callback) {
 function reportRunError(er, output) {
   if (!er) return;
 
-  console.error("%s: failed to run `%s`", $0, er.message);
+  console.error("Failed to run `%s`:", er.message);
   if (output && output !== '') {
     process.stderr.write(output);
   }
@@ -51,11 +51,29 @@ exports.build = function build(callback) {
 
   // Ignore unimplemented arguments for now...
 
-  runCommand('npm install --ignore-scripts', function(er, output) {
-    if (er) {
-      reportRunError(er, output);
-      return callback(er);
-    }
-    return callback(er);
-  });
+  doNpmInstall();
+
+  function doNpmInstall() {
+    runCommand('npm install --ignore-scripts', function(er, output) {
+      if (er) {
+        console.error('%s: error during dependency installation', $0);
+        reportRunError(er, output);
+        return callback(er);
+      }
+
+      return doBuildScript();
+    });
+  }
+
+  function doBuildScript() {
+    runCommand('npm run build', function(er, output) {
+      if (er) {
+        console.error('%s: error in package build script', $0);
+        reportRunError(er, output);
+        return callback(er);
+      }
+
+      return callback();
+    });
+  }
 };
