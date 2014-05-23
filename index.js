@@ -1,18 +1,24 @@
 var assert = require('assert');
 var debug = require('debug')('strong-build');
+var fs = require('fs');
 var Parser = require('posix-getopt').BasicParser;
 var path = require('path');
+var json = require('json-file-plus');
+var lodash = require('lodash');
 var shell = require('shelljs');
 var vasync = require('vasync');
 
 function printHelp($0, prn) {
   prn('usage: %s [options]', $0);
   prn('');
-  prn('Build a node application archive.');
+  prn('Build a node application package.');
   prn('');
-  prn('Archives are built without running scripts (by default) to avoid');
+  prn('Packages are built without running scripts (by default) to avoid');
   prn('compiling any binary addons. Build and install scripts should be run');
   prn('on the deployment server using `npm rebuild; npm install`.');
+  prn('');
+  prn('... XXX(SR) I think --bundle should be default behaviour of --install');
+  prn('... XXX(SR) and there should be --no-bundle (like --scripts) to avoid');
   prn('');
   prn('Pack output is a tar file in the format produced by `npm pack` and');
   prn('accepted by `npm install`.');
@@ -22,7 +28,8 @@ function printHelp($0, prn) {
   prn('  -v,--version    Print version and exit.');
   prn('  -i,--install    Install dependencies (without scripts, by default).');
   prn('  --scripts       If installing, run scripts (to build addons).');
-  prn('  -p,--pack       Pack into a publishable archive (with dependencies)');
+  prn('  -b,--bundle     Modify package to bundle deployment dependencies.');
+  prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
 }
 
 function runCommand(cmd, callback) {
@@ -50,13 +57,13 @@ exports.build = function build(argv, callback) {
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
   var parser = new Parser(
-    ':v(version)h(help)s(scripts)i(install)p(pack)',
+    ':v(version)h(help)s(scripts)i(install)b(bundle)p(pack)',
     argv);
   var option;
   var install;
   var scripts;
+  var bundle;
   var pack;
-
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
@@ -71,6 +78,9 @@ exports.build = function build(argv, callback) {
         break;
       case 'i':
         install = true;
+        break;
+      case 'b':
+        bundle = true;
         break;
       case 'p':
         pack = true;
@@ -87,14 +97,18 @@ exports.build = function build(argv, callback) {
     return callback(Error('usage'));
   }
 
-  if (!install && !pack) {
-    install = pack = true;
+  if (!install && !bundle && !pack) {
+    install = bundle = pack = true;
   }
 
   var steps = [];
 
   if (install) {
     steps.push(doNpmInstall);
+  }
+
+  if (bundle) {
+    steps.push(doBundle);
   }
 
   if (pack) {
@@ -125,6 +139,62 @@ exports.build = function build(argv, callback) {
         reportRunError(er, output);
       }
       return callback(er);
+    });
+  }
+
+  function doBundle(_, callback) {
+    // Build output won't get packed if it is .npmignored (a configuration
+    // error, don't .npmignore your build output) or if there is no .npmignore,
+    // if it is .gitignored (as they should be). So, create an empty .npmignore
+    // if there is a .gitignore but not a .npmignore so build products are
+    // packed.
+    if (fs.existsSync('.gitignore')) {
+      fs.close(fs.openSync('.npmignore', 'a'));
+    }
+
+    // node_modules is unconditionally ignored by npm pack, the only way to get
+    // the dependencies packed is to name them in the package.json's
+    // bundledDepenencies.
+    var deps = fs.readdirSync('node_modules').filter(function(file) {
+      // Only directories containing a package.json are packages.
+      return shell.test(
+        '-f',
+        path.join('node_modules', file, 'package.json')
+      );
+    });
+
+    var info = require(path.resolve('package.json'));
+    var dev = Object.keys(info.devDependencies || {});
+
+    // Remove dev dependencies, bundle any others, including manually
+    // installed, deps comitted into version control, optional, etc.
+    var bundle = lodash.difference(deps, dev);
+
+    // Two names are allowed for this key... use 'bundledDependencies' unless
+    // package is already using the other name.
+    var key = info.bundleDependencies ?
+      'bundleDependencies' :
+      'bundledDependencies';
+
+    bundle = lodash.uniq(bundle.concat(
+      info.bundleDependencies || info.bundledDependencies || []
+    ));
+
+    // Re-write package.json, preserving its format if possible.
+    json('package.json', function(er, p) {
+      if (er) {
+        console.error('%s: error reading package.json: %s', $0, er.message);
+        return callback(er);
+      }
+
+      p.data[key] = bundle;
+
+      p.save(function(er) {
+        if (er) {
+          console.error('%s: error writing package.json: %s', $0, er.message);
+        }
+        return callback(er);
+      });
     });
   }
 

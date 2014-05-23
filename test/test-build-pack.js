@@ -7,5 +7,12 @@ require('./build-example')(['--install', '-p'], function(er) {
   var tgz = util.format('%s-%s.tgz', info.name, info.version);
   assert(test('-f', tgz), 'expected to find ' + tgz);
 
-  // XXX(sam) open the tgz, and assert something about its contents?
+  tar.list(tgz, function(er, paths) {
+    var bundled = paths.filter(function(path) {
+      return path.match(/node_modules/);
+    });
+    debug('tarfile %s bundles:', tgz, bundled);
+
+    assert.equal(bundled.length, 0, 'bundling not requested');
+  });
 });
