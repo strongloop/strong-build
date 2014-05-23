@@ -41,9 +41,12 @@ module.exports = function buildExample(args, callback) {
   });
 
 
-  debug('test: build slc example, args:', args);
-  debug('cwd:', pwd());
-  debug('which slc:', which('slc'), exec('slc -v', {silent: true}).output);
+  console.log('build example with %j in %s with %s at %s',
+    args,
+    pwd(),
+    which('slc'),
+    exec('slc -v', {silent: true}).output.split('\n')[0].split(' ')[1]
+ );
 
   rm('-rf', '_suite');
   exec('slc example suite _suite --no-install', {silent: true});
