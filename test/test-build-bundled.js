@@ -2,7 +2,7 @@ var lodash = require('lodash');
 require('./build-example')(['--install', '-p', '--bundle'], function(er) {
   assert.ifError(er);
   var info = fs.readJsonSync('package.json');
-  var tgz = util.format('%s-%s.tgz', info.name, info.version);
+  var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));
 
   // loopback should be bundled (normal dep)
   // loopback-connector-mysql should be bundled (optional dep)

@@ -4,7 +4,7 @@ require('./build-example')(['--install', '-p'], function(er) {
   assert(test('-d', 'node_modules'));
   var info = require(path.resolve('package.json'));
   assert.equal(info.name, 'sls-sample-app');
-  var tgz = util.format('%s-%s.tgz', info.name, info.version);
+  var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));
   assert(test('-f', tgz), 'expected to find ' + tgz);
 
   tar.list(tgz, function(er, paths) {

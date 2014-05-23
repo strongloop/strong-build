@@ -203,8 +203,16 @@ exports.build = function build(argv, callback) {
       if (er) {
         console.error('%s: error packing an archive', $0);
         reportRunError(er, output);
+        return callback(er);
       }
-      return callback(er);
+
+      // npm pack output is a single line with the pack file name
+      var src = output.split('\n')[0];
+      var dst = path.join('..', src);
+
+      shell.mv('-f', src, dst);
+
+      return callback();
     });
   }
 };
