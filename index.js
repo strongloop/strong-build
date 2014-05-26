@@ -1,10 +1,11 @@
 var assert = require('assert');
 var debug = require('debug')('strong-build');
 var fs = require('fs');
-var Parser = require('posix-getopt').BasicParser;
-var path = require('path');
+var git = require('./lib/git');
 var json = require('json-file-plus');
 var lodash = require('lodash');
+var Parser = require('posix-getopt').BasicParser;
+var path = require('path');
 var shell = require('shelljs');
 var vasync = require('vasync');
 
@@ -12,6 +13,12 @@ function printHelp($0, prn) {
   prn('usage: %s [options]', $0);
   prn('');
   prn('Build a node application package.');
+  prn('');
+  prn('With no options, the default is to install, bundle, and pack.');
+  prn('');
+  prn('When using git, the current branch can be committed onto a deployment');
+  prn('branch before the build. This allows the build products to be');
+  prn('committed and synchronized with a source-only branch.');
   prn('');
   prn('Packages are built without running scripts (by default, see --scripts)');
   prn('to avoid compiling any binary addons. Compilation and install scripts');
@@ -34,6 +41,7 @@ function printHelp($0, prn) {
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
   prn('  -v,--version    Print version and exit.');
+  prn('  -onto BRANCH    Merge git HEAD to deployment BRANCH.');
   prn('  -i,--install    Install dependencies (without scripts, by default).');
   prn('  --scripts       If installing, run scripts (to build addons).');
   prn('  -b,--bundle     Modify package to bundle deployment dependencies.');
@@ -65,9 +73,10 @@ exports.build = function build(argv, callback) {
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
   var parser = new Parser(
-    ':v(version)h(help)s(scripts)i(install)b(bundle)p(pack)',
+    ':v(version)h(help)s(scripts)i(install)b(bundle)p(pack)O:(onto)',
     argv);
   var option;
+  var onto;
   var install;
   var scripts;
   var bundle;
@@ -93,6 +102,9 @@ exports.build = function build(argv, callback) {
       case 'p':
         pack = true;
         break;
+      case 'O':
+        onto = option.optarg;
+        break;
       default:
         console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
           option.optopt, $0);
@@ -105,11 +117,15 @@ exports.build = function build(argv, callback) {
     return callback(Error('usage'));
   }
 
-  if (!install && !bundle && !pack) {
+  if (!onto && !install && !bundle && !pack) {
     install = bundle = pack = true;
   }
 
   var steps = [];
+
+  if (onto) {
+    steps.push(doGitOnto);
+  }
 
   if (install) {
     steps.push(doNpmInstall);
@@ -124,6 +140,18 @@ exports.build = function build(argv, callback) {
   }
 
   vasync.pipeline({funcs: steps}, callback);
+
+  function doGitOnto(_, callback) {
+    try {
+      var info = git.onto($0, onto);
+      console.log('%s: merged `%s` onto `%s`, ready to build',
+                  $0, info.srcBranch, info.dstBranch);
+      return callback();
+    } catch(er) {
+      console.error('%s: %s', $0, er.message);
+      return callback(er);
+    }
+  }
 
   function doNpmInstall(_, callback) {
     var npmInstall = 'npm install';
@@ -175,7 +203,7 @@ exports.build = function build(argv, callback) {
     var dev = Object.keys(info.devDependencies || {});
 
     // Remove dev dependencies, bundle any others, including manually
-    // installed, deps comitted into version control, optional, etc.
+    // installed, deps committed into version control, optional, etc.
     var bundle = lodash.difference(deps, dev);
 
     // Two names are allowed for this key... use 'bundledDependencies' unless
