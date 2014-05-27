@@ -12,10 +12,10 @@ require('./build-example')(['--install', '-p', '--bundle'], function(er) {
       return _ === name;
     }) >= 0;
   }
-  debug('package bundles:', info.bundledDependencies);
-  assert(isBundled(info.bundledDependencies, 'loopback'));
-  assert(isBundled(info.bundledDependencies, 'loopback-connector-mysql'));
-  assert(!isBundled(info.bundledDependencies, 'mocha'));
+  debug('package bundles:', info.bundleDependencies);
+  assert(isBundled(info.bundleDependencies, 'loopback'));
+  assert(isBundled(info.bundleDependencies, 'loopback-connector-mysql'));
+  assert(!isBundled(info.bundleDependencies, 'mocha'));
 
   tar.list(tgz, function(er, paths) {
     debug('tarfile %s bundles:', tgz, bundled);
@@ -30,7 +30,7 @@ require('./build-example')(['--install', '-p', '--bundle'], function(er) {
       return undefined;
     }).compact().sort().value();
     debug('tarfile %s bundles:', tgz, bundled);
-    debug('should be:', info.bundledDependencies);
-    assert.deepEqual(bundled, info.bundledDependencies);
+    debug('should be:', info.bundleDependencies);
+    assert.deepEqual(bundled, info.bundleDependencies);
   });
 });

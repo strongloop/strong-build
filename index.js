@@ -33,7 +33,9 @@ function printHelp($0, prn) {
   prn('');
   prn('Bundling configures the package.json and .npmignore so deployment (not');
   prn('development) dependencies as well as any \'build\' script output will');
-  prn('not be ignored by `npm pack`.');
+  prn('not be ignored by `npm pack`. If an .npmignore is created, check it');
+  prn('carefully to ensure build products are packed, but editor and test');
+  prn('ephemera are not.');
   prn('');
   prn('Pack output is a tar file in the format produced by `npm pack` and');
   prn('accepted by `npm install`.');
@@ -184,7 +186,8 @@ exports.build = function build(argv, callback) {
     // if it is .gitignored (as they should be). So, create an empty .npmignore
     // if there is a .gitignore but not a .npmignore so build products are
     // packed.
-    if (fs.existsSync('.gitignore')) {
+    if (fs.existsSync('.gitignore') && !fs.existsSync('.npmignore')) {
+      console.warn('%s: creating an empty .npmignore (please check)', $0);
       fs.close(fs.openSync('.npmignore', 'a'));
     }
 
@@ -205,16 +208,8 @@ exports.build = function build(argv, callback) {
     // Remove dev dependencies, bundle any others, including manually
     // installed, deps committed into version control, optional, etc.
     var bundle = lodash.difference(deps, dev);
-
-    // Two names are allowed for this key... use 'bundledDependencies' unless
-    // package is already using the other name.
-    var key = info.bundleDependencies ?
-      'bundleDependencies' :
-      'bundledDependencies';
-
-    bundle = lodash.uniq(bundle.concat(
-      info.bundleDependencies || info.bundledDependencies || []
-    ));
+    var key = preferredDependencyPropertyName(info);
+    bundle = lodash.uniq(bundle.concat(info[key] || []));
 
     // Re-write package.json, preserving its format if possible.
     json('package.json', function(er, p) {
@@ -232,6 +227,24 @@ exports.build = function build(argv, callback) {
         return callback(er);
       });
     });
+  }
+
+  // Two names are allowed for this key... npm prefers 'bundleDependencies' to
+  // 'bundledDependencies' (it will only use former if both present, at least as
+  // of npm v1.4.3).
+  function preferredDependencyPropertyName(info) {
+    var PREFER = 'bundleDependencies';
+    var ACCEPT = 'bundledDependencies';
+    var use;
+    if (info[ACCEPT]) use = ACCEPT;
+    if (info[PREFER]) {
+      if (use) {
+        console.warn('%s: ignoring `%s` in favor of `%s`', $0, use, PREFER);
+      }
+      use = PREFER;
+    }
+    if (!use) use = PREFER;
+    return use;
   }
 
   function doNpmPack(_, callback) {
