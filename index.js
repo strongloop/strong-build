@@ -194,22 +194,27 @@ exports.build = function build(argv, callback) {
     // node_modules is unconditionally ignored by npm pack, the only way to get
     // the dependencies packed is to name them in the package.json's
     // bundledDepenencies.
-    var deps = fs.readdirSync('node_modules').filter(function(file) {
-      // Only directories containing a package.json are packages.
-      return shell.test(
-        '-f',
-        path.join('node_modules', file, 'package.json')
-      );
-    });
-
     var info = require(path.resolve('package.json'));
-    var dev = Object.keys(info.devDependencies || {});
 
-    // Remove dev dependencies, bundle any others, including manually
-    // installed, deps committed into version control, optional, etc.
-    var bundle = lodash.difference(deps, dev);
-    var key = preferredDependencyPropertyName(info);
-    bundle = lodash.uniq(bundle.concat(info[key] || []));
+    var bundled = info.bundleDependencies || info.bundledDependencies;
+
+    debug('found bundled: %j', bundled);
+
+    if (info.bundleDependencies || info.bundledDependencies) {
+      // Use package specified dependency bundling
+      return callback();
+    }
+
+    // Bundle non-dev dependencies. Optional deps may fail to build at deploy
+    // time, that's OK, but must be present during packing.  If the user has
+    // more specific desires, they can configure the dependencies themselves, or
+    // just not run the --bundle action.
+    bundled = lodash.union(
+      Object.keys(info.dependencies),
+      Object.keys(info.optionalDependencies)
+    ).sort();
+
+    debug('saving bundled: %j', bundled);
 
     // Re-write package.json, preserving its format if possible.
     json('package.json', function(er, p) {
@@ -218,7 +223,7 @@ exports.build = function build(argv, callback) {
         return callback(er);
       }
 
-      p.data[key] = bundle;
+      p.data.bundleDependencies = bundled;
 
       p.save(function(er) {
         if (er) {
@@ -227,24 +232,6 @@ exports.build = function build(argv, callback) {
         return callback(er);
       });
     });
-  }
-
-  // Two names are allowed for this key... npm prefers 'bundleDependencies' to
-  // 'bundledDependencies' (it will only use former if both present, at least as
-  // of npm v1.4.3).
-  function preferredDependencyPropertyName(info) {
-    var PREFER = 'bundleDependencies';
-    var ACCEPT = 'bundledDependencies';
-    var use;
-    if (info[ACCEPT]) use = ACCEPT;
-    if (info[PREFER]) {
-      if (use) {
-        console.warn('%s: ignoring `%s` in favor of `%s`', $0, use, PREFER);
-      }
-      use = PREFER;
-    }
-    if (!use) use = PREFER;
-    return use;
   }
 
   function doNpmPack(_, callback) {
