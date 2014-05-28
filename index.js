@@ -255,8 +255,10 @@ exports.build = function build(argv, callback) {
       p.save(function(er) {
         if (er) {
           console.error('%s: error writing package.json: %s', $0, er.message);
+          return callback(er);
         }
-        return callback(er);
+        console.log('%s: bundled dependencies into package.json', $0);
+        return callback();
       });
     });
   }
@@ -274,6 +276,8 @@ exports.build = function build(argv, callback) {
       var dst = path.join('..', src);
 
       shell.mv('-f', src, dst);
+
+      console.log('%s: pack into `%s`', $0, dst);
 
       return callback();
     });
