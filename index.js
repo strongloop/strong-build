@@ -172,7 +172,7 @@ exports.build = function build(argv, callback) {
 
   function doGitOnto(_, callback) {
     try {
-      var info = git.onto($0, onto);
+      var info = git.onto(onto);
       console.log('%s: merged `%s` onto `%s`, ready to build',
                   $0, info.srcBranch, info.dstBranch);
       return callback();
