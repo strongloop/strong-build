@@ -4,6 +4,7 @@ var fs = require('fs');
 var path = require('path');
 var tar = require('tar');
 var util = require('util');
+var vasync = require('vasync');
 var zlib = require('zlib');
 
 var shell = require('shelljs/global');
@@ -35,9 +36,27 @@ assert(!branchEqual('src', 'dst'));
 
 var build = require('../');
 
-build.build(['node', 'main.js', '--onto=dst'], function(er) {
+function onto(_, callback) {
+  build.build(['node', 'main.js', '--onto=dst'], function(er) {
+    if (er) return callback(er);
+    assert(branchEqual('src', 'dst'));
+    return callback();
+  });
+}
+
+// simulate build, by generating output
+touch('build.out');
+
+function commit(_, callback) {
+  build.build(['node', 'main.js', '-c'], function(er) {
+    if (er) return callback(er);
+    run('git log build.out'); // check build.out was committed
+    return callback();
+  });
+}
+
+vasync.pipeline({funcs: [onto, commit]}, function(er) {
   assert.ifError(er);
-  assert(branchEqual('src', 'dst'));
   ok = true;
 });
 

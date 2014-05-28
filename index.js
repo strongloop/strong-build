@@ -18,7 +18,8 @@ function printHelp($0, prn) {
   prn('');
   prn('When using git, the current branch can be committed onto a deployment');
   prn('branch before the build. This allows the build products to be');
-  prn('committed and synchronized with a source-only branch.');
+  prn('committed and synchronized with a source-only branch. Afterwards, the');
+  prn('deployment branch will be checked-out, ready for build and commit.');
   prn('');
   prn('Packages are built without running scripts (by default, see --scripts)');
   prn('to avoid compiling any binary addons. Compilation and install scripts');
@@ -40,6 +41,9 @@ function printHelp($0, prn) {
   prn('Pack output is a tar file in the format produced by `npm pack` and');
   prn('accepted by `npm install`.');
   prn('');
+  prn('Committing the build output allows it to be pushed to a PaaS, or');
+  prn('tracked in git. It is committed to current branch (but see `--onto`).');
+  prn('');
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
   prn('  -v,--version    Print version and exit.');
@@ -48,6 +52,7 @@ function printHelp($0, prn) {
   prn('  --scripts       If installing, run scripts (to build addons).');
   prn('  -b,--bundle     Modify package to bundle deployment dependencies.');
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
+  prn('  -c,--commit     Commit build output to current branch.');
 }
 
 function runCommand(cmd, callback) {
@@ -74,8 +79,17 @@ exports.build = function build(argv, callback) {
   var $0 = process.env.SLC_COMMAND ?
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
-  var parser = new Parser(
-    ':v(version)h(help)s(scripts)i(install)b(bundle)p(pack)O:(onto)',
+  var parser = new Parser([
+      ':v(version)',
+      'h(help)',
+      's(scripts)',
+      'i(install)',
+      'b(bundle)',
+      'p(pack)',
+      'O:(onto)',
+      'c(commit)',
+      'N(no-commit)',
+    ].join(''),
     argv);
   var option;
   var onto;
@@ -83,6 +97,7 @@ exports.build = function build(argv, callback) {
   var scripts;
   var bundle;
   var pack;
+  var commit;
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
@@ -107,6 +122,12 @@ exports.build = function build(argv, callback) {
       case 'O':
         onto = option.optarg;
         break;
+      case 'c':
+        commit = true;
+        break;
+      case 'N':
+        commit = false;
+        break;
       default:
         console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
           option.optopt, $0);
@@ -119,7 +140,9 @@ exports.build = function build(argv, callback) {
     return callback(Error('usage'));
   }
 
-  if (!onto && !install && !bundle && !pack) {
+  // With no actions selected, do everything we can (onto requires an argument,
+  // so we can't do it automatically).
+  if (!onto && !install && !bundle && !pack && !commit) {
     install = bundle = pack = true;
   }
 
@@ -139,6 +162,10 @@ exports.build = function build(argv, callback) {
 
   if (pack) {
     steps.push(doNpmPack);
+  }
+
+  if (commit) {
+    steps.push(doGitCommit);
   }
 
   vasync.pipeline({funcs: steps}, callback);
@@ -250,5 +277,16 @@ exports.build = function build(argv, callback) {
 
       return callback();
     });
+  }
+
+  function doGitCommit(_, callback) {
+    try {
+      var info = git.commitAll();
+      console.log('%s: committed build products onto `%s`', $0, info.branch);
+      return callback();
+    } catch(er) {
+      console.error('%s: %s', $0, er.message);
+      return callback(er);
+    }
   }
 };
