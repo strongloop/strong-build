@@ -42,7 +42,8 @@ function printHelp($0, prn) {
   prn('accepted by `npm install`.');
   prn('');
   prn('Committing the build output allows it to be pushed to a PaaS, or');
-  prn('tracked in git. It is committed to current branch (but see `--onto`).');
+  prn('tracked in git. It is committed to current branch, and best combined');
+  prn('with `--onto` to avoid having build products on non-deploy branches.');
   prn('');
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
@@ -173,7 +174,7 @@ exports.build = function build(argv, callback) {
   function doGitOnto(_, callback) {
     try {
       var info = git.onto(onto);
-      console.log('%s: merged `%s` onto `%s`, ready to build',
+      console.log('%s: merged `%s` onto `%s`',
                   $0, info.srcBranch, info.dstBranch);
       return callback();
     } catch(er) {
@@ -193,6 +194,7 @@ exports.build = function build(argv, callback) {
         reportRunError(er, output);
         return callback(er);
       }
+      console.log('%s: installed with `%s`', $0, npmInstall);
       return doBuildScript(_, callback);
     });
   }
@@ -202,8 +204,10 @@ exports.build = function build(argv, callback) {
       if (er) {
         console.error('%s: error in package build script', $0);
         reportRunError(er, output);
+        return callback(er);
       }
-      return callback(er);
+      console.log('%s: ran custom build with `npm run build`', $0);
+      return callback();
     });
   }
 
@@ -257,7 +261,7 @@ exports.build = function build(argv, callback) {
           console.error('%s: error writing package.json: %s', $0, er.message);
           return callback(er);
         }
-        console.log('%s: bundled dependencies into package.json', $0);
+        console.log('%s: saved bundled dependencies in package.json', $0);
         return callback();
       });
     });
@@ -277,7 +281,7 @@ exports.build = function build(argv, callback) {
 
       shell.mv('-f', src, dst);
 
-      console.log('%s: pack into `%s`', $0, dst);
+      console.log('%s: packed into `%s`', $0, dst);
 
       return callback();
     });
