@@ -1,5 +1,6 @@
 {
   "name": "strong-build",
+  "description": "prepare a node package for deployment",
   "version": "0.0.0",
   "repository": {
     "type": "git",
@@ -8,7 +9,7 @@
   "author": "engineering@strongloop.com",
   "license": {
     "name": "Dual MIT/StrongLoop",
-    "url": "https://github.com/strongloop/strong-build/blob/master/LICENSE"
+    "url": "https://github.com/strongloop/strong-build/blob/master/LICENSE.md"
   },
   "readmeFilename": "README.md",
   "main": "index.js",
