@@ -159,6 +159,7 @@ exports.build = function build(argv, callback) {
     if (!scripts) {
       npmInstall += ' --ignore-scripts';
     }
+    console.log('%s: installing with `%s`...', $0, npmInstall);
     runCommand(npmInstall, function(er, output) {
       if (er) {
         console.error('%s: error during dependency installation', $0);
@@ -171,13 +172,15 @@ exports.build = function build(argv, callback) {
   }
 
   function doBuildScript(_, callback) {
-    runCommand('npm run build', function(er, output) {
+    var npmRun = 'npm run build';
+    console.log('%s: running custom build with `%s`...', $0, npmRun);
+    runCommand(npmRun, function(er, output) {
       if (er) {
         console.error('%s: error in package build script', $0);
         reportRunError(er, output);
         return callback(er);
       }
-      console.log('%s: ran custom build with `npm run build`', $0);
+      console.log('%s: ran custom build with `%s`', $0, npmRun);
       return callback();
     });
   }
@@ -239,7 +242,9 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmPack(_, callback) {
-    runCommand('npm pack', function(er, output) {
+    var npmPack = 'npm pack';
+    console.log('%s: packing with `%s` ...', $0, npmPack);
+    runCommand(npmPack, function(er, output) {
       if (er) {
         console.error('%s: error packing an archive', $0);
         reportRunError(er, output);
@@ -252,7 +257,7 @@ exports.build = function build(argv, callback) {
 
       shell.mv('-f', src, dst);
 
-      console.log('%s: packed into `%s`', $0, dst);
+      console.log('%s: packed into `%s` with `%s`', $0, dst, npmPack);
 
       return callback();
     });
