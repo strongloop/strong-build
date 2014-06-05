@@ -215,8 +215,8 @@ exports.build = function build(argv, callback) {
     // more specific desires, they can configure the dependencies themselves, or
     // just not run the --bundle action.
     bundled = lodash.union(
-      Object.keys(info.dependencies),
-      Object.keys(info.optionalDependencies)
+      Object.keys(info.dependencies || {}),
+      Object.keys(info.optionalDependencies || {})
     ).sort();
 
     debug('saving bundled: %j', bundled);
