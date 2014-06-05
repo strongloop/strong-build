@@ -242,7 +242,7 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmPack(_, callback) {
-    var npmPack = 'npm pack';
+    var npmPack = 'npm --quiet pack';
     console.log('%s: packing with `%s` ...', $0, npmPack);
     runCommand(npmPack, function(er, output) {
       if (er) {
