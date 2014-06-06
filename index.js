@@ -165,11 +165,11 @@ exports.build = function build(argv, callback) {
   function doGitOnto(_, callback) {
     try {
       var info = git.onto(onto);
-      console.log('%s: merged `%s` onto `%s`',
-                  $0, info.srcBranch, info.dstBranch);
+      console.log('Merged source tree of `%s` onto `%s`',
+        info.srcBranch, info.dstBranch);
       return callback();
     } catch(er) {
-      console.error('%s: %s', $0, er.message);
+      console.error('%s', er.message);
       return callback(er);
     }
   }
@@ -267,10 +267,10 @@ exports.build = function build(argv, callback) {
   function doGitCommit(_, callback) {
     try {
       var info = git.commitAll();
-      console.log('%s: committed build products onto `%s`', $0, info.branch);
+      console.log('Committed build products onto `%s`', info.branch);
       return callback();
     } catch(er) {
-      console.error('%s: %s', $0, er.message);
+      console.error('%s', er.message);
       return callback(er);
     }
   }
