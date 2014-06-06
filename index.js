@@ -38,6 +38,26 @@ function runCommand(cmd, callback) {
   });
 }
 
+function runWait(cmd, callback) {
+  console.log('Running `%s`', cmd);
+  runCommand(cmd, function(er, output) {
+    if (er) {
+      console.error('Error on `%s`:', cmd);
+      reportRunError(er, output);
+      return callback(er);
+    }
+    return callback(null, output);
+  });
+}
+
+function runStep(cmd, callback) {
+  return function(_, callback) {
+    runWait(cmd, function(er) {
+      return callback(er); // do not return output of runWait()
+    });
+  };
+}
+
 function reportRunError(er, output) {
   if (!er) return;
 
@@ -155,47 +175,17 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmInstall(_, callback) {
-    var npmInstall = 'npm install';
+    var install = 'npm install';
     if (!scripts) {
-      npmInstall += ' --ignore-scripts';
+      install += ' --ignore-scripts';
     }
-    console.log('%s: installing with `%s`...', $0, npmInstall);
-    runCommand(npmInstall, function(er, output) {
-      if (er) {
-        console.error('%s: error during dependency installation', $0);
-        reportRunError(er, output);
-        return callback(er);
-      }
-      console.log('%s: installed with `%s`', $0, npmInstall);
-      return doBuildScript(_, callback);
-    });
-  }
-
-  function doBuildScript(_, callback) {
-    var npmRun = 'npm run build';
-    console.log('%s: running custom build with `%s`...', $0, npmRun);
-    runCommand(npmRun, function(er, output) {
-      if (er) {
-        console.error('%s: error in package build script', $0);
-        reportRunError(er, output);
-        return callback(er);
-      }
-      console.log('%s: ran custom build with `%s`', $0, npmRun);
-      return doNpmPrune(_, callback);
-    });
-  }
-
-  function doNpmPrune(_, callback) {
-    var npmCmd = 'npm prune --production';
-    console.log('%s: pruneing dev dependencies with `%s`...', $0, npmCmd);
-    runCommand(npmCmd, function(er, output) {
-      if (er) {
-        console.error('%s: error pruneing', $0);
-        reportRunError(er, output);
-        return callback(er);
-      }
-      console.log('%s: pruned dev dependencies with `%s`', $0, npmCmd);
-      return callback();
+    var steps = [
+      runStep(install),
+      runStep('npm run build'),
+      runStep('npm prune --production'),
+    ];
+    vasync.pipeline({ funcs: steps }, function(er) {
+      return callback(er);
     });
   }
 
@@ -206,7 +196,8 @@ exports.build = function build(argv, callback) {
     // if there is a .gitignore but not a .npmignore so build products are
     // packed.
     if (fs.existsSync('.gitignore') && !fs.existsSync('.npmignore')) {
-      console.warn('%s: creating an empty .npmignore (please check)', $0);
+      console.log('Running `touch .npmignore`');
+      console.warn('Check the auto-generated .npmignore is correct!');
       fs.close(fs.openSync('.npmignore', 'a'));
     }
 
@@ -214,10 +205,6 @@ exports.build = function build(argv, callback) {
     // the dependencies packed is to name them in the package.json's
     // bundledDepenencies.
     var info = require(path.resolve('package.json'));
-
-    var bundled = info.bundleDependencies || info.bundledDependencies;
-
-    debug('found bundled: %j', bundled);
 
     if (info.bundleDependencies || info.bundledDependencies) {
       // Use package specified dependency bundling
@@ -228,17 +215,24 @@ exports.build = function build(argv, callback) {
     // time, that's OK, but must be present during packing.  If the user has
     // more specific desires, they can configure the dependencies themselves, or
     // just not run the --bundle action.
-    bundled = lodash.union(
+    var bundled = lodash.union(
       Object.keys(info.dependencies || {}),
       Object.keys(info.optionalDependencies || {})
     ).sort();
 
     debug('saving bundled: %j', bundled);
 
+    if (bundled.length < 1) {
+      return callback();
+    }
+
+    console.log('Setting package.json "bundleDependencies" to: [\n  %s\n]',
+      bundled.join(',\n  '));
+
     // Re-write package.json, preserving its format if possible.
     json('package.json', function(er, p) {
       if (er) {
-        console.error('%s: error reading package.json: %s', $0, er.message);
+        console.error('Error reading package.json: %s', er.message);
         return callback(er);
       }
 
@@ -246,32 +240,25 @@ exports.build = function build(argv, callback) {
 
       p.save(function(er) {
         if (er) {
-          console.error('%s: error writing package.json: %s', $0, er.message);
+          console.error('Error writing package.json: %s', er.message);
           return callback(er);
         }
-        console.log('%s: saved bundled dependencies in package.json', $0);
         return callback();
       });
     });
   }
 
   function doNpmPack(_, callback) {
-    var npmPack = 'npm --quiet pack';
-    console.log('%s: packing with `%s` ...', $0, npmPack);
-    runCommand(npmPack, function(er, output) {
-      if (er) {
-        console.error('%s: error packing an archive', $0);
-        reportRunError(er, output);
-        return callback(er);
-      }
+    runWait('npm --quiet pack', function(er, output) {
+      if (er) return callback(er);
 
       // npm pack output is a single line with the pack file name
       var src = output.split('\n')[0];
       var dst = path.join('..', src);
 
-      shell.mv('-f', src, dst);
+      console.log('Running `mv -f %s %s`', src, dst);
 
-      console.log('%s: packed into `%s` with `%s`', $0, dst, npmPack);
+      shell.mv('-f', src, dst);
 
       return callback();
     });
