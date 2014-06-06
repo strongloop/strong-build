@@ -181,6 +181,20 @@ exports.build = function build(argv, callback) {
         return callback(er);
       }
       console.log('%s: ran custom build with `%s`', $0, npmRun);
+      return doNpmPrune(_, callback);
+    });
+  }
+
+  function doNpmPrune(_, callback) {
+    var npmCmd = 'npm prune --production';
+    console.log('%s: pruneing dev dependencies with `%s`...', $0, npmCmd);
+    runCommand(npmCmd, function(er, output) {
+      if (er) {
+        console.error('%s: error pruneing', $0);
+        reportRunError(er, output);
+        return callback(er);
+      }
+      console.log('%s: pruned dev dependencies with `%s`', $0, npmCmd);
       return callback();
     });
   }
