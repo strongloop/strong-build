@@ -67,3 +67,23 @@ pushed to the same repository as the development branches, or not.
 
 The git manipulations are supported by `--onto BRANCH` to commit the current
 HEAD onto BRANCH, and by `--commit` to add and commit all build products.
+
+## Usage
+
+```
+usage: slb [options]
+
+Build a node application package.
+
+With no options, the default is to install, bundle, and pack.
+
+Options:
+  -h,--help       Print this message and exit.
+  -v,--version    Print version and exit.
+  -onto BRANCH    Merge git HEAD to deployment BRANCH.
+  -i,--install    Install dependencies (without scripts, by default).
+  --scripts       If installing, run scripts (to build addons).
+  -b,--bundle     Modify package to bundle deployment dependencies.
+  -p,--pack       Pack into a publishable archive (with dependencies).
+  -c,--commit     Commit build output to current branch.
+```
