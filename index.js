@@ -128,7 +128,7 @@ exports.build = function build(argv, callback) {
   }
 
   if (parser.optind() !== argv.length) {
-    console.error('Invalid usage (extra arguments), try `%s --help`.');
+    console.error('Invalid usage (extra arguments), try `%s --help`.', $0);
     return callback(Error('usage'));
   }
 
