@@ -1,3 +1,7 @@
+2014-06-19, Version 0.1.0
+
+* Increment version because 0.0.x series is special to npm.
+
 2014-06-19, Version 0.0.1
 
 * docs: update README with usage (Sam Roberts)
