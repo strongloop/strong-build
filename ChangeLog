@@ -1,0 +1,64 @@
+2014-06-19, Version 0.0.1
+
+* docs: update README with usage (Sam Roberts)
+
+* usage: fix missing command name in usage message (Sam Roberts)
+
+* log: show git commands during --onto and --commit (Sam Roberts)
+
+* log: show commands during --install,bundle,pack (Sam Roberts)
+
+* install: prune dev dependencies after build script (Sam Roberts)
+
+* pack: remove npm debug messages from output (Sam Roberts)
+
+* bundle: accept packages with no dependencies (Sam Roberts)
+
+* log: log when beginning a long-running command (Sam Roberts)
+
+* doc: update README and other docs pre-publish (Sam Roberts)
+
+* readme: update with latest usage (Sam Roberts)
+
+* log: ensure each action logs on complete (Sam Roberts)
+
+* bundle,pack: log the actions taken (Sam Roberts)
+
+* git: remove unused $0 argument to git.onto() (Sam Roberts)
+
+* commit: commit build products into git (Sam Roberts)
+
+* bundle: bundle only dependencies and optional deps (Sam Roberts)
+
+* bundle: warn on problematic or incomplete config (Sam Roberts)
+
+* onto: commit source tree onto a deploy branch (Sam Roberts)
+
+* doc: add README.md and update --help output (Sam Roberts)
+
+* pack: place archive in parent directory (Sam Roberts)
+
+* test: use strong-cli as a dev dependency (Sam Roberts)
+
+* Implement --bundle, so dependencies are packed (Sam Roberts)
+
+* Implement --pack, to create an archive (Sam Roberts)
+
+* Implement --scripts, to build binary addons (Sam Roberts)
+
+* Refactor build test setup so it can be reused (Sam Roberts)
+
+* Use option parser, and test option parsing (Sam Roberts)
+
+* Implement running of custom package build script (Sam Roberts)
+
+* Implement usage and version options (Sam Roberts)
+
+* Implement npm install without build scripts (Sam Roberts)
+
+* Add tap test script (Sam Roberts)
+
+* Add package.json and slb stub (Sam Roberts)
+
+* License and contribution agreement (Sam Roberts)
+
