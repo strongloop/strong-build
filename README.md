@@ -75,15 +75,21 @@ usage: slb [options]
 
 Build a node application package.
 
-With no options, the default is to install, bundle, and pack.
+With no options, the default is to install, bundle, and pack. This
+would be typical for an `npm pack` based deployment.
+
+When committing build products to git, a more typical sequence would
+be onto, install, commit.
 
 Options:
   -h,--help       Print this message and exit.
   -v,--version    Print version and exit.
-  -onto BRANCH    Merge git HEAD to deployment BRANCH.
   -i,--install    Install dependencies (without scripts, by default).
   --scripts       If installing, run scripts (to build addons).
   -b,--bundle     Modify package to bundle deployment dependencies.
   -p,--pack       Pack into a publishable archive (with dependencies).
+
+Git specific options:
+  -onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.
   -c,--commit     Commit build output to current branch.
 ```
