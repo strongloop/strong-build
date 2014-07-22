@@ -55,7 +55,10 @@ function commit(_, callback) {
   });
 }
 
-vasync.pipeline({funcs: [onto, commit]}, function(er) {
+// Note we run onto twice, one to prove we can do it onto a branch with a
+// different head than ours, and the next time to prove we can do it onto a
+// branch with the same head as ours.
+vasync.pipeline({funcs: [onto, onto, commit]}, function(er) {
   assert.ifError(er);
   ok = true;
 });
