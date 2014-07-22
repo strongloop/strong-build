@@ -14,16 +14,22 @@ function printHelp($0, prn) {
   prn('');
   prn('Build a node application package.');
   prn('');
-  prn('With no options, the default is to install, bundle, and pack.');
+  prn('With no options, the default is to install, bundle, and pack. This');
+  prn('would be typical for an `npm pack` based deployment.');
+  prn('');
+  prn('When committing build products to git, a more typical sequence would');
+  prn('be onto, install, commit.');
   prn('');
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
   prn('  -v,--version    Print version and exit.');
-  prn('  -onto BRANCH    Merge git HEAD to deployment BRANCH.');
   prn('  -i,--install    Install dependencies (without scripts, by default).');
   prn('  --scripts       If installing, run scripts (to build addons).');
   prn('  -b,--bundle     Modify package to bundle deployment dependencies.');
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
+  prn('');
+  prn('Git specific options:');
+  prn('  -onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.');
   prn('  -c,--commit     Commit build output to current branch.');
 }
 
