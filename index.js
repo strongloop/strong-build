@@ -18,7 +18,8 @@ function printHelp($0, prn) {
   prn('detected or not.');
   prn('');
   prn('If a git repository is detected, the default is to install and commit');
-  prn('the build results to the "deploy" branch.');
+  prn('the build results to the "deploy" branch, which will be created if it');
+  prn('does not already exist.');
   prn('');
   prn('If no git repository is detected, the default is to bundle, install,');
   prn('and pack the build results into a <package-name>-<version>.tgz file.');
@@ -32,7 +33,8 @@ function printHelp($0, prn) {
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
   prn('');
   prn('Git specific options:');
-  prn('  --onto BRANCH   Merge current HEAD to BRANCH, and checkout BRANCH.');
+  prn('  --onto BRANCH   Merge current HEAD to BRANCH (creating if necessary)');
+  prn('                  and checkout BRANCH.');
   prn('  -c,--commit     Commit build output to current branch.');
 }
 
@@ -164,7 +166,8 @@ exports.build = function build(argv, callback) {
   var steps = [];
 
   if (onto) {
-    steps.push(doGitOnto);
+    steps.push(doEnsureGitBranch);
+    steps.push(doGitSyncBranch);
   }
 
   if (install) {
@@ -185,7 +188,17 @@ exports.build = function build(argv, callback) {
 
   vasync.pipeline({funcs: steps}, callback);
 
-  function doGitOnto(_, callback) {
+  function doEnsureGitBranch(_, callback) {
+    try {
+      git.ensureBranch(onto);
+      return callback();
+    } catch(er) {
+      console.error('%s', er.message);
+      return callback(er);
+    }
+  }
+
+  function doGitSyncBranch(_, callback) {
     try {
       var info = git.onto(onto);
       console.log('Merged source tree of `%s` onto `%s`',

@@ -79,7 +79,8 @@ With no options, the default depends on whether a git repository is
 detected or not.
 
 If a git repository is detected, the default is to install and commit
-the build results to the "deploy" branch.
+the build results to the "deploy" branch, which will be created if it
+does not already exist.
 
 If no git repository is detected, the default is to bundle, install,
 and pack the build results into a <package-name>-<version>.tgz file.
@@ -93,6 +94,7 @@ Options:
   -p,--pack       Pack into a publishable archive (with dependencies).
 
 Git specific options:
-  --onto BRANCH   Merge current HEAD to BRANCH, and checkout BRANCH.
+  --onto BRANCH   Merge current HEAD to BRANCH (creating if necessary)
+                  and checkout BRANCH.
   -c,--commit     Commit build output to current branch.
 ```
