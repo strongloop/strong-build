@@ -29,7 +29,7 @@ function printHelp($0, prn) {
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
   prn('');
   prn('Git specific options:');
-  prn('  -onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.');
+  prn('  --onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.');
   prn('  -c,--commit     Commit build output to current branch.');
 }
 
