@@ -199,8 +199,11 @@ exports.build = function build(argv, callback) {
   function doGitSyncBranch(_, callback) {
     try {
       var info = git.syncBranch(onto);
-      console.log('Merged source tree of `%s` onto `%s`',
-        info.srcBranch, info.dstBranch);
+      if (info.srcBranch && info.dstBranch)
+        console.log('Merged source tree of `%s` onto `%s`',
+          info.srcBranch, info.dstBranch);
+      else
+        console.log('Not merging HEAD into `%s`, already up to date.', onto);
       return callback();
     } catch(er) {
       console.error('%s', er.message);
