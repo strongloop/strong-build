@@ -304,7 +304,10 @@ exports.build = function build(argv, callback) {
   function doGitCommit(_, callback) {
     try {
       var info = git.commitAll(onto);
-      console.log('Committed build products onto `%s`', info.branch);
+      if (info.branch)
+        console.log('Committed build products onto `%s`', info.branch);
+      else
+        console.log('Build products already up to date on `%s`', onto);
       return callback();
     } catch(er) {
       console.error('%s', er.message);
