@@ -33,9 +33,9 @@ function printHelp($0, prn) {
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
   prn('');
   prn('Git specific options:');
-  prn('  --onto BRANCH   Merge current HEAD to BRANCH (creating if necessary)');
-  prn('                  and checkout BRANCH.');
-  prn('  -c,--commit     Commit build output to current branch.');
+  prn('  -c,--commit     Commit build output (branch specified by --onto).');
+  prn('  --onto BRANCH   Branch to commit build results to, creating if');
+  prn('                  necessary. ("deploy", by default).');
 }
 
 function runCommand(cmd, callback) {
@@ -95,7 +95,7 @@ exports.build = function build(argv, callback) {
     ].join(''),
     argv);
   var option;
-  var onto;
+  var onto = 'deploy';
   var install;
   var scripts;
   var bundle;
@@ -148,11 +148,9 @@ exports.build = function build(argv, callback) {
   if (parser.optind() === 2) {
     install = true;
     if (git.isGit()) {
-      onto = 'deploy';
       commit = true;
       bundle = pack = false;
     } else {
-      onto = false;
       commit = false;
       bundle = pack = true;
     }
@@ -165,7 +163,7 @@ exports.build = function build(argv, callback) {
 
   var steps = [];
 
-  if (onto) {
+  if (commit) {
     steps.push(doEnsureGitBranch);
     steps.push(doGitSyncBranch);
   }
@@ -200,7 +198,7 @@ exports.build = function build(argv, callback) {
 
   function doGitSyncBranch(_, callback) {
     try {
-      var info = git.onto(onto);
+      var info = git.syncBranch(onto);
       console.log('Merged source tree of `%s` onto `%s`',
         info.srcBranch, info.dstBranch);
       return callback();
@@ -302,7 +300,7 @@ exports.build = function build(argv, callback) {
 
   function doGitCommit(_, callback) {
     try {
-      var info = git.commitAll();
+      var info = git.commitAll(onto);
       console.log('Committed build products onto `%s`', info.branch);
       return callback();
     } catch(er) {

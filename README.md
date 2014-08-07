@@ -94,7 +94,7 @@ Options:
   -p,--pack       Pack into a publishable archive (with dependencies).
 
 Git specific options:
-  --onto BRANCH   Merge current HEAD to BRANCH (creating if necessary)
-                  and checkout BRANCH.
-  -c,--commit     Commit build output to current branch.
+  -c,--commit     Commit build output (branch specified by --onto).
+  --onto BRANCH   Branch to commit build results to, creating if
+                  necessary. ("deploy", by default).
 ```
