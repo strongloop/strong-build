@@ -55,3 +55,37 @@ AFTER_HEAD=`git show-ref -s --head HEAD`
 echo "BH $BEFORE_HEAD BD $BEFORE_DST AH $AFTER_HEAD AD $AFTER_DST"
 test "$BEFORE_HEAD" == "$AFTER_HEAD" || die 'slb should not modify HEAD'
 test "$BEFORE_DST" == "$AFTER_DST" || die 'slb should not modify --onto branch if nothing changed'
+
+BEFORE_HEAD=`git show-ref -s --head HEAD`
+BEFORE_DST=`git show-ref -s --heads dst`
+BEFORE_SRC=`git show-ref -s --heads src`
+
+touch build2.out
+node ../../bin/slb --commit --onto HEAD || die 'Failed to deploy to current branch'
+
+AFTER_SRC=`git show-ref -s --heads src`
+AFTER_DST=`git show-ref -s --heads dst`
+AFTER_HEAD=`git show-ref -s --head HEAD`
+
+echo "BH $BEFORE_HEAD BD $BEFORE_DST AH $AFTER_HEAD AD $AFTER_DST"
+test "$BEFORE_HEAD" != "$AFTER_HEAD" || die 'slb should modify HEAD if used for deploy'
+test "$BEFORE_SRC" != "$AFTER_SRC" || die 'slb should modify branch HEAD pointed to'
+test "$BEFORE_DST" == "$AFTER_DST" || die 'slb should NOT modify other branches'
+
+git cat-file -e master:build2.out 2> /dev/null && die 'build.out should not exist on master'
+git cat-file -e dst:build2.out 2> /dev/null && die 'build.out should not exist on dst'
+git cat-file -e src:build2.out || die 'build.out should exist on src'
+
+BEFORE_HEAD=`git show-ref -s --head HEAD`
+BEFORE_DST=`git show-ref -s --heads dst`
+BEFORE_SRC=`git show-ref -s --heads src`
+
+node ../../bin/slb --commit --onto HEAD || die 'Failed to deploy to current branch'
+
+AFTER_SRC=`git show-ref -s --heads src`
+AFTER_DST=`git show-ref -s --heads dst`
+AFTER_HEAD=`git show-ref -s --head HEAD`
+
+test "$BEFORE_HEAD" == "$AFTER_HEAD" || die 'slb should modify HEAD if used for deploy'
+test "$BEFORE_SRC" == "$AFTER_SRC" || die 'slb should modify branch HEAD pointed to'
+test "$BEFORE_DST" == "$AFTER_DST" || die 'slb should NOT modify other branches'
