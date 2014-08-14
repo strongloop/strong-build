@@ -1,0 +1,70 @@
+{
+  "name": "Inventory",
+  "options": {
+    "idInjection": false,
+    "oracle": {
+      "schema": "BLACKPOOL",
+      "table": "INVENTORY"
+    },
+    "plural": "inventory"
+  },
+  "properties": {
+    "id": {
+      "type": "String",
+      "required": true,
+      "id": true,
+      "length": 20,
+      "oracle": {
+        "columnName": "ID",
+        "dataType": "VARCHAR2",
+        "dataLength": 20,
+        "nullable": "N"
+      }
+    },
+
+    "productId": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "oracle": {
+        "columnName": "PRODUCT_ID",
+        "dataType": "VARCHAR2",
+        "dataLength": 20,
+        "nullable": "N"
+      }
+    },
+    "locationId": {
+      "type": "String",
+      "required": true,
+      "length": 20,
+      "oracle": {
+        "columnName": "LOCATION_ID",
+        "dataType": "VARCHAR2",
+        "dataLength": 20,
+        "nullable": "N"
+      }
+    },
+    "available": {
+      "type": "Number",
+      "required": false,
+      "length": 22,
+      "oracle": {
+        "columnName": "AVAILABLE",
+        "dataType": "NUMBER",
+        "dataLength": 22,
+        "nullable": "Y"
+      }
+    },
+    "total": {
+      "type": "Number",
+      "required": false,
+      "length": 22,
+      "oracle": {
+        "columnName": "TOTAL",
+        "dataType": "NUMBER",
+        "dataLength": 22,
+        "nullable": "Y"
+      }
+    }
+  }
+}

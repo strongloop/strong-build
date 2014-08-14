@@ -1,0 +1,44 @@
+{
+  "name": "car",
+  "options": {
+    "oracle": {
+      "schema": "DEMO",
+      "table": "PRODUCT"
+    },
+    "relations": {
+      "reservations": {
+        "model": "reservation",
+        "type": "hasMany",
+        "foreignKey": "productId"
+      }
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true
+    },
+    "vin": {
+      "type": "string"
+    },
+    "year": {
+      "type": "number"
+    },
+    "make": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string"
+    },
+    "carClass": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    }
+
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "name": "Location",
+  "options": {
+    "idInjection": false,
+    "oracle": {
+      "schema": "BLACKPOOL",
+      "table": "LOCATION"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "String",
+      "length": 20,
+      "id": 1,
+      "oracle": {
+        "columnName": "ID",
+        "dataType": "VARCHAR2",
+        "dataLength": 20,
+        "nullable": "N"
+      }
+    },
+    "street": {
+      "type": "String",
+      "required": false,
+      "length": 64,
+      "oracle": {
+        "columnName": "STREET",
+        "dataType": "VARCHAR2",
+        "dataLength": 64,
+        "nullable": "Y"
+      }
+    },
+    "city": {
+      "type": "String",
+      "required": false,
+      "length": 64,
+      "oracle": {
+        "columnName": "CITY",
+        "dataType": "VARCHAR2",
+        "dataLength": 64,
+        "nullable": "Y"
+      }
+    },
+    "zipcode": {
+      "type": "Number",
+      "required": false,
+      "length": 20,
+      "oracle": {
+        "columnName": "ZIPCODE",
+        "dataType": "VARCHAR2",
+        "dataLength": 20,
+        "nullable": "Y"
+      }
+    },
+    "name": {
+      "type": "String",
+      "required": false,
+      "length": 32,
+      "oracle": {
+        "columnName": "NAME",
+        "dataType": "VARCHAR2",
+        "dataLength": 32,
+        "nullable": "Y"
+      }
+    },
+    "geo": {
+      "type": "GeoPoint"
+    }
+  }
+}

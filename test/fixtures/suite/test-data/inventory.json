@@ -1,0 +1,3104 @@
+[
+  {
+    "productId": "1",
+    "locationId": "5",
+    "available": 43,
+    "total": 56
+  },
+  {
+    "productId": "2",
+    "locationId": "5",
+    "available": 43,
+    "total": 56
+  },
+  {
+    "productId": "3",
+    "locationId": "5",
+    "available": 27,
+    "total": 85
+  },
+  {
+    "productId": "4",
+    "locationId": "5",
+    "available": 18,
+    "total": 30
+  },
+  {
+    "productId": "5",
+    "locationId": "5",
+    "available": 3,
+    "total": 38
+  },
+  {
+    "productId": "6",
+    "locationId": "5",
+    "available": 10,
+    "total": 21
+  },
+  {
+    "productId": "7",
+    "locationId": "5",
+    "available": 43,
+    "total": 58
+  },
+  {
+    "productId": "8",
+    "locationId": "5",
+    "available": 6,
+    "total": 12
+  },
+  {
+    "productId": "9",
+    "locationId": "5",
+    "available": 0,
+    "total": 3
+  },
+  {
+    "productId": "10",
+    "locationId": "5",
+    "available": 0,
+    "total": 31
+  },
+  {
+    "productId": "11",
+    "locationId": "5",
+    "available": 73,
+    "total": 93
+  },
+  {
+    "productId": "12",
+    "locationId": "5",
+    "available": 22,
+    "total": 25
+  },
+  {
+    "productId": "13",
+    "locationId": "5",
+    "available": 44,
+    "total": 70
+  },
+  {
+    "productId": "14",
+    "locationId": "5",
+    "available": 26,
+    "total": 50
+  },
+  {
+    "productId": "15",
+    "locationId": "5",
+    "available": 36,
+    "total": 83
+  },
+  {
+    "productId": "16",
+    "locationId": "5",
+    "available": 20,
+    "total": 59
+  },
+  {
+    "productId": "17",
+    "locationId": "5",
+    "available": 28,
+    "total": 44
+  },
+  {
+    "productId": "18",
+    "locationId": "5",
+    "available": 5,
+    "total": 50
+  },
+  {
+    "productId": "19",
+    "locationId": "5",
+    "available": 2,
+    "total": 29
+  },
+  {
+    "productId": "20",
+    "locationId": "5",
+    "available": 38,
+    "total": 54
+  },
+  {
+    "productId": "21",
+    "locationId": "5",
+    "available": 4,
+    "total": 29
+  },
+  {
+    "productId": "22",
+    "locationId": "5",
+    "available": 1,
+    "total": 59
+  },
+  {
+    "productId": "23",
+    "locationId": "5",
+    "available": 20,
+    "total": 36
+  },
+  {
+    "productId": "24",
+    "locationId": "5",
+    "available": 10,
+    "total": 10
+  },
+  {
+    "productId": "25",
+    "locationId": "5",
+    "available": 58,
+    "total": 60
+  },
+  {
+    "productId": "26",
+    "locationId": "5",
+    "available": 0,
+    "total": 18
+  },
+  {
+    "productId": "27",
+    "locationId": "5",
+    "available": 29,
+    "total": 50
+  },
+  {
+    "productId": "28",
+    "locationId": "5",
+    "available": 24,
+    "total": 34
+  },
+  {
+    "productId": "29",
+    "locationId": "5",
+    "available": 36,
+    "total": 43
+  },
+  {
+    "productId": "30",
+    "locationId": "5",
+    "available": 43,
+    "total": 64
+  },
+  {
+    "productId": "31",
+    "locationId": "5",
+    "available": 79,
+    "total": 90
+  },
+  {
+    "productId": "32",
+    "locationId": "5",
+    "available": 13,
+    "total": 13
+  },
+  {
+    "productId": "33",
+    "locationId": "5",
+    "available": 9,
+    "total": 60
+  },
+  {
+    "productId": "34",
+    "locationId": "5",
+    "available": 7,
+    "total": 13
+  },
+  {
+    "productId": "35",
+    "locationId": "5",
+    "available": 43,
+    "total": 54
+  },
+  {
+    "productId": "36",
+    "locationId": "5",
+    "available": 67,
+    "total": 69
+  },
+  {
+    "productId": "37",
+    "locationId": "5",
+    "available": 1,
+    "total": 15
+  },
+  {
+    "productId": "38",
+    "locationId": "5",
+    "available": 36,
+    "total": 44
+  },
+  {
+    "productId": "39",
+    "locationId": "5",
+    "available": 1,
+    "total": 17
+  },
+  {
+    "productId": "40",
+    "locationId": "5",
+    "available": 13,
+    "total": 16
+  },
+  {
+    "productId": "41",
+    "locationId": "5",
+    "available": 24,
+    "total": 64
+  },
+  {
+    "productId": "42",
+    "locationId": "5",
+    "available": 87,
+    "total": 99
+  },
+  {
+    "productId": "43",
+    "locationId": "5",
+    "available": 27,
+    "total": 99
+  },
+  {
+    "productId": "44",
+    "locationId": "5",
+    "available": 71,
+    "total": 71
+  },
+  {
+    "productId": "45",
+    "locationId": "5",
+    "available": 9,
+    "total": 20
+  },
+  {
+    "productId": "46",
+    "locationId": "5",
+    "available": 9,
+    "total": 67
+  },
+  {
+    "productId": "47",
+    "locationId": "5",
+    "available": 19,
+    "total": 21
+  },
+  {
+    "productId": "48",
+    "locationId": "5",
+    "available": 5,
+    "total": 5
+  },
+  {
+    "productId": "49",
+    "locationId": "5",
+    "available": 82,
+    "total": 91
+  },
+  {
+    "productId": "50",
+    "locationId": "5",
+    "available": 27,
+    "total": 42
+  },
+  {
+    "productId": "51",
+    "locationId": "5",
+    "available": 51,
+    "total": 60
+  },
+  {
+    "productId": "52",
+    "locationId": "5",
+    "available": 8,
+    "total": 72
+  },
+  {
+    "productId": "53",
+    "locationId": "5",
+    "available": 5,
+    "total": 13
+  },
+  {
+    "productId": "54",
+    "locationId": "5",
+    "available": 3,
+    "total": 71
+  },
+  {
+    "productId": "55",
+    "locationId": "5",
+    "available": 55,
+    "total": 56
+  },
+  {
+    "productId": "56",
+    "locationId": "5",
+    "available": 9,
+    "total": 90
+  },
+  {
+    "productId": "57",
+    "locationId": "5",
+    "available": 3,
+    "total": 18
+  },
+  {
+    "productId": "58",
+    "locationId": "5",
+    "available": 2,
+    "total": 14
+  },
+  {
+    "productId": "59",
+    "locationId": "5",
+    "available": 54,
+    "total": 95
+  },
+  {
+    "productId": "60",
+    "locationId": "5",
+    "available": 62,
+    "total": 70
+  },
+  {
+    "productId": "61",
+    "locationId": "5",
+    "available": 18,
+    "total": 50
+  },
+  {
+    "productId": "62",
+    "locationId": "5",
+    "available": 60,
+    "total": 78
+  },
+  {
+    "productId": "63",
+    "locationId": "5",
+    "available": 23,
+    "total": 59
+  },
+  {
+    "productId": "64",
+    "locationId": "5",
+    "available": 14,
+    "total": 23
+  },
+  {
+    "productId": "65",
+    "locationId": "5",
+    "available": 2,
+    "total": 97
+  },
+  {
+    "productId": "66",
+    "locationId": "5",
+    "available": 49,
+    "total": 50
+  },
+  {
+    "productId": "67",
+    "locationId": "5",
+    "available": 47,
+    "total": 93
+  },
+  {
+    "productId": "68",
+    "locationId": "5",
+    "available": 34,
+    "total": 42
+  },
+  {
+    "productId": "69",
+    "locationId": "5",
+    "available": 3,
+    "total": 18
+  },
+  {
+    "productId": "70",
+    "locationId": "5",
+    "available": 37,
+    "total": 84
+  },
+  {
+    "productId": "71",
+    "locationId": "5",
+    "available": 22,
+    "total": 40
+  },
+  {
+    "productId": "72",
+    "locationId": "5",
+    "available": 8,
+    "total": 61
+  },
+  {
+    "productId": "73",
+    "locationId": "5",
+    "available": 2,
+    "total": 3
+  },
+  {
+    "productId": "74",
+    "locationId": "5",
+    "available": 10,
+    "total": 16
+  },
+  {
+    "productId": "75",
+    "locationId": "5",
+    "available": 53,
+    "total": 89
+  },
+  {
+    "productId": "76",
+    "locationId": "5",
+    "available": 35,
+    "total": 60
+  },
+  {
+    "productId": "77",
+    "locationId": "5",
+    "available": 57,
+    "total": 80
+  },
+  {
+    "productId": "78",
+    "locationId": "5",
+    "available": 53,
+    "total": 81
+  },
+  {
+    "productId": "79",
+    "locationId": "5",
+    "available": 32,
+    "total": 54
+  },
+  {
+    "productId": "80",
+    "locationId": "5",
+    "available": 1,
+    "total": 4
+  },
+  {
+    "productId": "81",
+    "locationId": "5",
+    "available": 78,
+    "total": 86
+  },
+  {
+    "productId": "82",
+    "locationId": "5",
+    "available": 11,
+    "total": 21
+  },
+  {
+    "productId": "83",
+    "locationId": "5",
+    "available": 28,
+    "total": 81
+  },
+  {
+    "productId": "84",
+    "locationId": "5",
+    "available": 2,
+    "total": 57
+  },
+  {
+    "productId": "85",
+    "locationId": "5",
+    "available": 30,
+    "total": 37
+  },
+  {
+    "productId": "86",
+    "locationId": "5",
+    "available": 17,
+    "total": 80
+  },
+  {
+    "productId": "5",
+    "locationId": "5",
+    "available": 1,
+    "total": 9
+  },
+  {
+    "productId": "2",
+    "locationId": "8",
+    "available": 10,
+    "total": 10
+  },
+  {
+    "productId": "3",
+    "locationId": "8",
+    "available": 1,
+    "total": 1
+  },
+  {
+    "productId": "4",
+    "locationId": "8",
+    "available": 8,
+    "total": 27
+  },
+  {
+    "productId": "5",
+    "locationId": "8",
+    "available": 3,
+    "total": 38
+  },
+  {
+    "productId": "6",
+    "locationId": "8",
+    "available": 28,
+    "total": 76
+  },
+  {
+    "productId": "7",
+    "locationId": "8",
+    "available": 40,
+    "total": 83
+  },
+  {
+    "productId": "8",
+    "locationId": "8",
+    "available": 1,
+    "total": 4
+  },
+  {
+    "productId": "9",
+    "locationId": "8",
+    "available": 87,
+    "total": 95
+  },
+  {
+    "productId": "10",
+    "locationId": "8",
+    "available": 29,
+    "total": 35
+  },
+  {
+    "productId": "11",
+    "locationId": "8",
+    "available": 10,
+    "total": 69
+  },
+  {
+    "productId": "12",
+    "locationId": "8",
+    "available": 32,
+    "total": 86
+  },
+  {
+    "productId": "13",
+    "locationId": "8",
+    "available": 27,
+    "total": 28
+  },
+  {
+    "productId": "14",
+    "locationId": "8",
+    "available": 59,
+    "total": 66
+  },
+  {
+    "productId": "15",
+    "locationId": "8",
+    "available": 59,
+    "total": 70
+  },
+  {
+    "productId": "16",
+    "locationId": "8",
+    "available": 43,
+    "total": 70
+  },
+  {
+    "productId": "17",
+    "locationId": "8",
+    "available": 50,
+    "total": 63
+  },
+  {
+    "productId": "18",
+    "locationId": "8",
+    "available": 8,
+    "total": 20
+  },
+  {
+    "productId": "19",
+    "locationId": "8",
+    "available": 20,
+    "total": 29
+  },
+  {
+    "productId": "20",
+    "locationId": "8",
+    "available": 36,
+    "total": 50
+  },
+  {
+    "productId": "21",
+    "locationId": "8",
+    "available": 40,
+    "total": 63
+  },
+  {
+    "productId": "22",
+    "locationId": "8",
+    "available": 4,
+    "total": 96
+  },
+  {
+    "productId": "23",
+    "locationId": "8",
+    "available": 70,
+    "total": 98
+  },
+  {
+    "productId": "24",
+    "locationId": "8",
+    "available": 1,
+    "total": 1
+  },
+  {
+    "productId": "25",
+    "locationId": "8",
+    "available": 17,
+    "total": 45
+  },
+  {
+    "productId": "26",
+    "locationId": "8",
+    "available": 52,
+    "total": 97
+  },
+  {
+    "productId": "27",
+    "locationId": "8",
+    "available": 0,
+    "total": 0
+  },
+  {
+    "productId": "28",
+    "locationId": "8",
+    "available": 97,
+    "total": 98
+  },
+  {
+    "productId": "29",
+    "locationId": "8",
+    "available": 26,
+    "total": 80
+  },
+  {
+    "productId": "30",
+    "locationId": "8",
+    "available": 11,
+    "total": 33
+  },
+  {
+    "productId": "31",
+    "locationId": "8",
+    "available": 10,
+    "total": 21
+  },
+  {
+    "productId": "32",
+    "locationId": "8",
+    "available": 14,
+    "total": 36
+  },
+  {
+    "productId": "33",
+    "locationId": "8",
+    "available": 71,
+    "total": 86
+  },
+  {
+    "productId": "34",
+    "locationId": "8",
+    "available": 85,
+    "total": 100
+  },
+  {
+    "productId": "35",
+    "locationId": "8",
+    "available": 3,
+    "total": 45
+  },
+  {
+    "productId": "36",
+    "locationId": "8",
+    "available": 0,
+    "total": 3
+  },
+  {
+    "productId": "37",
+    "locationId": "8",
+    "available": 17,
+    "total": 71
+  },
+  {
+    "productId": "38",
+    "locationId": "8",
+    "available": 41,
+    "total": 75
+  },
+  {
+    "productId": "39",
+    "locationId": "8",
+    "available": 37,
+    "total": 41
+  },
+  {
+    "productId": "40",
+    "locationId": "8",
+    "available": 37,
+    "total": 49
+  },
+  {
+    "productId": "41",
+    "locationId": "8",
+    "available": 1,
+    "total": 2
+  },
+  {
+    "productId": "42",
+    "locationId": "8",
+    "available": 49,
+    "total": 72
+  },
+  {
+    "productId": "43",
+    "locationId": "8",
+    "available": 24,
+    "total": 38
+  },
+  {
+    "productId": "44",
+    "locationId": "8",
+    "available": 6,
+    "total": 66
+  },
+  {
+    "productId": "45",
+    "locationId": "8",
+    "available": 31,
+    "total": 49
+  },
+  {
+    "productId": "46",
+    "locationId": "8",
+    "available": 9,
+    "total": 10
+  },
+  {
+    "productId": "47",
+    "locationId": "8",
+    "available": 57,
+    "total": 72
+  },
+  {
+    "productId": "48",
+    "locationId": "8",
+    "available": 17,
+    "total": 24
+  },
+  {
+    "productId": "49",
+    "locationId": "8",
+    "available": 41,
+    "total": 61
+  },
+  {
+    "productId": "50",
+    "locationId": "8",
+    "available": 33,
+    "total": 87
+  },
+  {
+    "productId": "51",
+    "locationId": "8",
+    "available": 11,
+    "total": 25
+  },
+  {
+    "productId": "52",
+    "locationId": "8",
+    "available": 1,
+    "total": 8
+  },
+  {
+    "productId": "53",
+    "locationId": "8",
+    "available": 14,
+    "total": 64
+  },
+  {
+    "productId": "54",
+    "locationId": "8",
+    "available": 50,
+    "total": 89
+  },
+  {
+    "productId": "55",
+    "locationId": "8",
+    "available": 16,
+    "total": 66
+  },
+  {
+    "productId": "56",
+    "locationId": "8",
+    "available": 0,
+    "total": 6
+  },
+  {
+    "productId": "57",
+    "locationId": "8",
+    "available": 18,
+    "total": 32
+  },
+  {
+    "productId": "58",
+    "locationId": "8",
+    "available": 6,
+    "total": 6
+  },
+  {
+    "productId": "59",
+    "locationId": "8",
+    "available": 68,
+    "total": 84
+  },
+  {
+    "productId": "60",
+    "locationId": "8",
+    "available": 50,
+    "total": 74
+  },
+  {
+    "productId": "61",
+    "locationId": "8",
+    "available": 7,
+    "total": 18
+  },
+  {
+    "productId": "62",
+    "locationId": "8",
+    "available": 14,
+    "total": 49
+  },
+  {
+    "productId": "63",
+    "locationId": "8",
+    "available": 3,
+    "total": 3
+  },
+  {
+    "productId": "64",
+    "locationId": "8",
+    "available": 21,
+    "total": 83
+  },
+  {
+    "productId": "65",
+    "locationId": "8",
+    "available": 48,
+    "total": 90
+  },
+  {
+    "productId": "66",
+    "locationId": "8",
+    "available": 11,
+    "total": 65
+  },
+  {
+    "productId": "67",
+    "locationId": "8",
+    "available": 29,
+    "total": 90
+  },
+  {
+    "productId": "68",
+    "locationId": "8",
+    "available": 44,
+    "total": 45
+  },
+  {
+    "productId": "69",
+    "locationId": "8",
+    "available": 23,
+    "total": 30
+  },
+  {
+    "productId": "70",
+    "locationId": "8",
+    "available": 53,
+    "total": 71
+  },
+  {
+    "productId": "71",
+    "locationId": "8",
+    "available": 50,
+    "total": 76
+  },
+  {
+    "productId": "72",
+    "locationId": "8",
+    "available": 13,
+    "total": 20
+  },
+  {
+    "productId": "73",
+    "locationId": "8",
+    "available": 6,
+    "total": 8
+  },
+  {
+    "productId": "74",
+    "locationId": "8",
+    "available": 7,
+    "total": 11
+  },
+  {
+    "productId": "75",
+    "locationId": "8",
+    "available": 0,
+    "total": 3
+  },
+  {
+    "productId": "76",
+    "locationId": "8",
+    "available": 49,
+    "total": 51
+  },
+  {
+    "productId": "77",
+    "locationId": "8",
+    "available": 37,
+    "total": 61
+  },
+  {
+    "productId": "78",
+    "locationId": "8",
+    "available": 4,
+    "total": 78
+  },
+  {
+    "productId": "79",
+    "locationId": "8",
+    "available": 1,
+    "total": 5
+  },
+  {
+    "productId": "80",
+    "locationId": "8",
+    "available": 23,
+    "total": 29
+  },
+  {
+    "productId": "81",
+    "locationId": "8",
+    "available": 3,
+    "total": 52
+  },
+  {
+    "productId": "82",
+    "locationId": "8",
+    "available": 1,
+    "total": 2
+  },
+  {
+    "productId": "83",
+    "locationId": "8",
+    "available": 65,
+    "total": 67
+  },
+  {
+    "productId": "84",
+    "locationId": "8",
+    "available": 41,
+    "total": 87
+  },
+  {
+    "productId": "85",
+    "locationId": "8",
+    "available": 20,
+    "total": 21
+  },
+  {
+    "productId": "86",
+    "locationId": "8",
+    "available": 46,
+    "total": 94
+  },
+  {
+    "productId": "5",
+    "locationId": "8",
+    "available": 64,
+    "total": 68
+  },
+  {
+    "productId": "2",
+    "locationId": "9",
+    "available": 5,
+    "total": 78
+  },
+  {
+    "productId": "3",
+    "locationId": "9",
+    "available": 29,
+    "total": 41
+  },
+  {
+    "productId": "4",
+    "locationId": "9",
+    "available": 2,
+    "total": 39
+  },
+  {
+    "productId": "5",
+    "locationId": "9",
+    "available": 57,
+    "total": 67
+  },
+  {
+    "productId": "6",
+    "locationId": "9",
+    "available": 1,
+    "total": 2
+  },
+  {
+    "productId": "7",
+    "locationId": "9",
+    "available": 68,
+    "total": 80
+  },
+  {
+    "productId": "8",
+    "locationId": "9",
+    "available": 22,
+    "total": 81
+  },
+  {
+    "productId": "9",
+    "locationId": "9",
+    "available": 9,
+    "total": 52
+  },
+  {
+    "productId": "10",
+    "locationId": "9",
+    "available": 26,
+    "total": 42
+  },
+  {
+    "productId": "11",
+    "locationId": "9",
+    "available": 42,
+    "total": 91
+  },
+  {
+    "productId": "12",
+    "locationId": "9",
+    "available": 23,
+    "total": 35
+  },
+  {
+    "productId": "13",
+    "locationId": "9",
+    "available": 38,
+    "total": 59
+  },
+  {
+    "productId": "14",
+    "locationId": "9",
+    "available": 43,
+    "total": 51
+  },
+  {
+    "productId": "15",
+    "locationId": "9",
+    "available": 19,
+    "total": 29
+  },
+  {
+    "productId": "16",
+    "locationId": "9",
+    "available": 21,
+    "total": 29
+  },
+  {
+    "productId": "17",
+    "locationId": "9",
+    "available": 18,
+    "total": 47
+  },
+  {
+    "productId": "18",
+    "locationId": "9",
+    "available": 26,
+    "total": 52
+  },
+  {
+    "productId": "19",
+    "locationId": "9",
+    "available": 18,
+    "total": 61
+  },
+  {
+    "productId": "20",
+    "locationId": "9",
+    "available": 33,
+    "total": 97
+  },
+  {
+    "productId": "21",
+    "locationId": "9",
+    "available": 1,
+    "total": 35
+  },
+  {
+    "productId": "22",
+    "locationId": "9",
+    "available": 41,
+    "total": 65
+  },
+  {
+    "productId": "23",
+    "locationId": "9",
+    "available": 16,
+    "total": 41
+  },
+  {
+    "productId": "24",
+    "locationId": "9",
+    "available": 26,
+    "total": 32
+  },
+  {
+    "productId": "25",
+    "locationId": "9",
+    "available": 0,
+    "total": 11
+  },
+  {
+    "productId": "26",
+    "locationId": "9",
+    "available": 30,
+    "total": 52
+  },
+  {
+    "productId": "27",
+    "locationId": "9",
+    "available": 29,
+    "total": 73
+  },
+  {
+    "productId": "28",
+    "locationId": "9",
+    "available": 26,
+    "total": 86
+  },
+  {
+    "productId": "29",
+    "locationId": "9",
+    "available": 48,
+    "total": 48
+  },
+  {
+    "productId": "30",
+    "locationId": "9",
+    "available": 0,
+    "total": 68
+  },
+  {
+    "productId": "31",
+    "locationId": "9",
+    "available": 25,
+    "total": 32
+  },
+  {
+    "productId": "32",
+    "locationId": "9",
+    "available": 37,
+    "total": 80
+  },
+  {
+    "productId": "33",
+    "locationId": "9",
+    "available": 12,
+    "total": 43
+  },
+  {
+    "productId": "34",
+    "locationId": "9",
+    "available": 34,
+    "total": 89
+  },
+  {
+    "productId": "35",
+    "locationId": "9",
+    "available": 54,
+    "total": 97
+  },
+  {
+    "productId": "36",
+    "locationId": "9",
+    "available": 2,
+    "total": 18
+  },
+  {
+    "productId": "37",
+    "locationId": "9",
+    "available": 13,
+    "total": 16
+  },
+  {
+    "productId": "38",
+    "locationId": "9",
+    "available": 19,
+    "total": 54
+  },
+  {
+    "productId": "39",
+    "locationId": "9",
+    "available": 16,
+    "total": 40
+  },
+  {
+    "productId": "40",
+    "locationId": "9",
+    "available": 10,
+    "total": 93
+  },
+  {
+    "productId": "41",
+    "locationId": "9",
+    "available": 35,
+    "total": 39
+  },
+  {
+    "productId": "42",
+    "locationId": "9",
+    "available": 24,
+    "total": 25
+  },
+  {
+    "productId": "43",
+    "locationId": "9",
+    "available": 5,
+    "total": 55
+  },
+  {
+    "productId": "44",
+    "locationId": "9",
+    "available": 9,
+    "total": 43
+  },
+  {
+    "productId": "45",
+    "locationId": "9",
+    "available": 36,
+    "total": 82
+  },
+  {
+    "productId": "46",
+    "locationId": "9",
+    "available": 5,
+    "total": 8
+  },
+  {
+    "productId": "47",
+    "locationId": "9",
+    "available": 18,
+    "total": 20
+  },
+  {
+    "productId": "48",
+    "locationId": "9",
+    "available": 2,
+    "total": 9
+  },
+  {
+    "productId": "49",
+    "locationId": "9",
+    "available": 34,
+    "total": 91
+  },
+  {
+    "productId": "50",
+    "locationId": "9",
+    "available": 27,
+    "total": 55
+  },
+  {
+    "productId": "51",
+    "locationId": "9",
+    "available": 11,
+    "total": 72
+  },
+  {
+    "productId": "52",
+    "locationId": "9",
+    "available": 8,
+    "total": 13
+  },
+  {
+    "productId": "53",
+    "locationId": "9",
+    "available": 4,
+    "total": 31
+  },
+  {
+    "productId": "54",
+    "locationId": "9",
+    "available": 1,
+    "total": 1
+  },
+  {
+    "productId": "55",
+    "locationId": "9",
+    "available": 7,
+    "total": 19
+  },
+  {
+    "productId": "56",
+    "locationId": "9",
+    "available": 3,
+    "total": 35
+  },
+  {
+    "productId": "57",
+    "locationId": "9",
+    "available": 58,
+    "total": 73
+  },
+  {
+    "productId": "58",
+    "locationId": "9",
+    "available": 2,
+    "total": 32
+  },
+  {
+    "productId": "59",
+    "locationId": "9",
+    "available": 51,
+    "total": 64
+  },
+  {
+    "productId": "60",
+    "locationId": "9",
+    "available": 34,
+    "total": 79
+  },
+  {
+    "productId": "61",
+    "locationId": "9",
+    "available": 44,
+    "total": 66
+  },
+  {
+    "productId": "62",
+    "locationId": "9",
+    "available": 37,
+    "total": 46
+  },
+  {
+    "productId": "63",
+    "locationId": "9",
+    "available": 10,
+    "total": 11
+  },
+  {
+    "productId": "64",
+    "locationId": "9",
+    "available": 15,
+    "total": 74
+  },
+  {
+    "productId": "65",
+    "locationId": "9",
+    "available": 8,
+    "total": 19
+  },
+  {
+    "productId": "66",
+    "locationId": "9",
+    "available": 13,
+    "total": 26
+  },
+  {
+    "productId": "67",
+    "locationId": "9",
+    "available": 0,
+    "total": 1
+  },
+  {
+    "productId": "68",
+    "locationId": "9",
+    "available": 5,
+    "total": 17
+  },
+  {
+    "productId": "69",
+    "locationId": "9",
+    "available": 0,
+    "total": 0
+  },
+  {
+    "productId": "70",
+    "locationId": "9",
+    "available": 1,
+    "total": 48
+  },
+  {
+    "productId": "71",
+    "locationId": "9",
+    "available": 13,
+    "total": 70
+  },
+  {
+    "productId": "72",
+    "locationId": "9",
+    "available": 24,
+    "total": 68
+  },
+  {
+    "productId": "73",
+    "locationId": "9",
+    "available": 21,
+    "total": 48
+  },
+  {
+    "productId": "74",
+    "locationId": "9",
+    "available": 17,
+    "total": 68
+  },
+  {
+    "productId": "75",
+    "locationId": "9",
+    "available": 72,
+    "total": 72
+  },
+  {
+    "productId": "76",
+    "locationId": "9",
+    "available": 6,
+    "total": 24
+  },
+  {
+    "productId": "77",
+    "locationId": "9",
+    "available": 18,
+    "total": 22
+  },
+  {
+    "productId": "78",
+    "locationId": "9",
+    "available": 8,
+    "total": 24
+  },
+  {
+    "productId": "79",
+    "locationId": "9",
+    "available": 26,
+    "total": 31
+  },
+  {
+    "productId": "80",
+    "locationId": "9",
+    "available": 14,
+    "total": 19
+  },
+  {
+    "productId": "81",
+    "locationId": "9",
+    "available": 10,
+    "total": 31
+  },
+  {
+    "productId": "82",
+    "locationId": "9",
+    "available": 88,
+    "total": 92
+  },
+  {
+    "productId": "83",
+    "locationId": "9",
+    "available": 5,
+    "total": 11
+  },
+  {
+    "productId": "84",
+    "locationId": "9",
+    "available": 13,
+    "total": 72
+  },
+  {
+    "productId": "85",
+    "locationId": "9",
+    "available": 18,
+    "total": 37
+  },
+  {
+    "productId": "86",
+    "locationId": "9",
+    "available": 6,
+    "total": 12
+  },
+  {
+    "productId": "5",
+    "locationId": "9",
+    "available": 79,
+    "total": 99
+  },
+  {
+    "productId": "2",
+    "locationId": "10",
+    "available": 10,
+    "total": 19
+  },
+  {
+    "productId": "3",
+    "locationId": "10",
+    "available": 3,
+    "total": 6
+  },
+  {
+    "productId": "4",
+    "locationId": "10",
+    "available": 8,
+    "total": 38
+  },
+  {
+    "productId": "5",
+    "locationId": "10",
+    "available": 26,
+    "total": 54
+  },
+  {
+    "productId": "6",
+    "locationId": "10",
+    "available": 20,
+    "total": 73
+  },
+  {
+    "productId": "7",
+    "locationId": "10",
+    "available": 30,
+    "total": 95
+  },
+  {
+    "productId": "8",
+    "locationId": "10",
+    "available": 32,
+    "total": 93
+  },
+  {
+    "productId": "9",
+    "locationId": "10",
+    "available": 4,
+    "total": 18
+  },
+  {
+    "productId": "10",
+    "locationId": "10",
+    "available": 32,
+    "total": 94
+  },
+  {
+    "productId": "11",
+    "locationId": "10",
+    "available": 57,
+    "total": 80
+  },
+  {
+    "productId": "12",
+    "locationId": "10",
+    "available": 3,
+    "total": 6
+  },
+  {
+    "productId": "13",
+    "locationId": "10",
+    "available": 40,
+    "total": 58
+  },
+  {
+    "productId": "14",
+    "locationId": "10",
+    "available": 54,
+    "total": 91
+  },
+  {
+    "productId": "15",
+    "locationId": "10",
+    "available": 10,
+    "total": 11
+  },
+  {
+    "productId": "16",
+    "locationId": "10",
+    "available": 34,
+    "total": 58
+  },
+  {
+    "productId": "17",
+    "locationId": "10",
+    "available": 34,
+    "total": 99
+  },
+  {
+    "productId": "18",
+    "locationId": "10",
+    "available": 72,
+    "total": 90
+  },
+  {
+    "productId": "19",
+    "locationId": "10",
+    "available": 13,
+    "total": 76
+  },
+  {
+    "productId": "20",
+    "locationId": "10",
+    "available": 37,
+    "total": 71
+  },
+  {
+    "productId": "21",
+    "locationId": "10",
+    "available": 21,
+    "total": 39
+  },
+  {
+    "productId": "22",
+    "locationId": "10",
+    "available": 4,
+    "total": 20
+  },
+  {
+    "productId": "23",
+    "locationId": "10",
+    "available": 11,
+    "total": 73
+  },
+  {
+    "productId": "24",
+    "locationId": "10",
+    "available": 18,
+    "total": 100
+  },
+  {
+    "productId": "25",
+    "locationId": "10",
+    "available": 26,
+    "total": 62
+  },
+  {
+    "productId": "26",
+    "locationId": "10",
+    "available": 0,
+    "total": 1
+  },
+  {
+    "productId": "27",
+    "locationId": "10",
+    "available": 10,
+    "total": 28
+  },
+  {
+    "productId": "28",
+    "locationId": "10",
+    "available": 68,
+    "total": 78
+  },
+  {
+    "productId": "29",
+    "locationId": "10",
+    "available": 10,
+    "total": 73
+  },
+  {
+    "productId": "30",
+    "locationId": "10",
+    "available": 73,
+    "total": 96
+  },
+  {
+    "productId": "31",
+    "locationId": "10",
+    "available": 35,
+    "total": 75
+  },
+  {
+    "productId": "32",
+    "locationId": "10",
+    "available": 58,
+    "total": 88
+  },
+  {
+    "productId": "33",
+    "locationId": "10",
+    "available": 14,
+    "total": 26
+  },
+  {
+    "productId": "34",
+    "locationId": "10",
+    "available": 22,
+    "total": 24
+  },
+  {
+    "productId": "35",
+    "locationId": "10",
+    "available": 23,
+    "total": 72
+  },
+  {
+    "productId": "36",
+    "locationId": "10",
+    "available": 23,
+    "total": 59
+  },
+  {
+    "productId": "37",
+    "locationId": "10",
+    "available": 3,
+    "total": 6
+  },
+  {
+    "productId": "38",
+    "locationId": "10",
+    "available": 51,
+    "total": 71
+  },
+  {
+    "productId": "39",
+    "locationId": "10",
+    "available": 48,
+    "total": 60
+  },
+  {
+    "productId": "40",
+    "locationId": "10",
+    "available": 44,
+    "total": 56
+  },
+  {
+    "productId": "41",
+    "locationId": "10",
+    "available": 25,
+    "total": 36
+  },
+  {
+    "productId": "42",
+    "locationId": "10",
+    "available": 32,
+    "total": 83
+  },
+  {
+    "productId": "43",
+    "locationId": "10",
+    "available": 77,
+    "total": 92
+  },
+  {
+    "productId": "44",
+    "locationId": "10",
+    "available": 30,
+    "total": 38
+  },
+  {
+    "productId": "45",
+    "locationId": "10",
+    "available": 43,
+    "total": 49
+  },
+  {
+    "productId": "46",
+    "locationId": "10",
+    "available": 23,
+    "total": 27
+  },
+  {
+    "productId": "47",
+    "locationId": "10",
+    "available": 78,
+    "total": 84
+  },
+  {
+    "productId": "48",
+    "locationId": "10",
+    "available": 26,
+    "total": 48
+  },
+  {
+    "productId": "49",
+    "locationId": "10",
+    "available": 15,
+    "total": 52
+  },
+  {
+    "productId": "50",
+    "locationId": "10",
+    "available": 4,
+    "total": 45
+  },
+  {
+    "productId": "51",
+    "locationId": "10",
+    "available": 53,
+    "total": 77
+  },
+  {
+    "productId": "52",
+    "locationId": "10",
+    "available": 5,
+    "total": 6
+  },
+  {
+    "productId": "53",
+    "locationId": "10",
+    "available": 17,
+    "total": 30
+  },
+  {
+    "productId": "54",
+    "locationId": "10",
+    "available": 4,
+    "total": 44
+  },
+  {
+    "productId": "55",
+    "locationId": "10",
+    "available": 12,
+    "total": 20
+  },
+  {
+    "productId": "56",
+    "locationId": "10",
+    "available": 15,
+    "total": 25
+  },
+  {
+    "productId": "57",
+    "locationId": "10",
+    "available": 1,
+    "total": 33
+  },
+  {
+    "productId": "58",
+    "locationId": "10",
+    "available": 22,
+    "total": 34
+  },
+  {
+    "productId": "59",
+    "locationId": "10",
+    "available": 6,
+    "total": 12
+  },
+  {
+    "productId": "60",
+    "locationId": "10",
+    "available": 3,
+    "total": 9
+  },
+  {
+    "productId": "61",
+    "locationId": "10",
+    "available": 41,
+    "total": 59
+  },
+  {
+    "productId": "62",
+    "locationId": "10",
+    "available": 16,
+    "total": 32
+  },
+  {
+    "productId": "63",
+    "locationId": "10",
+    "available": 7,
+    "total": 15
+  },
+  {
+    "productId": "64",
+    "locationId": "10",
+    "available": 49,
+    "total": 95
+  },
+  {
+    "productId": "65",
+    "locationId": "10",
+    "available": 41,
+    "total": 45
+  },
+  {
+    "productId": "66",
+    "locationId": "10",
+    "available": 18,
+    "total": 45
+  },
+  {
+    "productId": "67",
+    "locationId": "10",
+    "available": 11,
+    "total": 39
+  },
+  {
+    "productId": "68",
+    "locationId": "10",
+    "available": 26,
+    "total": 84
+  },
+  {
+    "productId": "69",
+    "locationId": "10",
+    "available": 3,
+    "total": 4
+  },
+  {
+    "productId": "70",
+    "locationId": "10",
+    "available": 72,
+    "total": 98
+  },
+  {
+    "productId": "71",
+    "locationId": "10",
+    "available": 26,
+    "total": 28
+  },
+  {
+    "productId": "72",
+    "locationId": "10",
+    "available": 2,
+    "total": 2
+  },
+  {
+    "productId": "73",
+    "locationId": "10",
+    "available": 57,
+    "total": 90
+  },
+  {
+    "productId": "74",
+    "locationId": "10",
+    "available": 12,
+    "total": 75
+  },
+  {
+    "productId": "75",
+    "locationId": "10",
+    "available": 23,
+    "total": 37
+  },
+  {
+    "productId": "76",
+    "locationId": "10",
+    "available": 22,
+    "total": 22
+  },
+  {
+    "productId": "77",
+    "locationId": "10",
+    "available": 30,
+    "total": 86
+  },
+  {
+    "productId": "78",
+    "locationId": "10",
+    "available": 44,
+    "total": 82
+  },
+  {
+    "productId": "79",
+    "locationId": "10",
+    "available": 13,
+    "total": 17
+  },
+  {
+    "productId": "80",
+    "locationId": "10",
+    "available": 38,
+    "total": 45
+  },
+  {
+    "productId": "81",
+    "locationId": "10",
+    "available": 26,
+    "total": 91
+  },
+  {
+    "productId": "82",
+    "locationId": "10",
+    "available": 34,
+    "total": 41
+  },
+  {
+    "productId": "83",
+    "locationId": "10",
+    "available": 19,
+    "total": 43
+  },
+  {
+    "productId": "84",
+    "locationId": "10",
+    "available": 43,
+    "total": 43
+  },
+  {
+    "productId": "85",
+    "locationId": "10",
+    "available": 34,
+    "total": 69
+  },
+  {
+    "productId": "86",
+    "locationId": "10",
+    "available": 10,
+    "total": 25
+  },
+  {
+    "productId": "5",
+    "locationId": "10",
+    "available": 18,
+    "total": 34
+  },
+  {
+    "productId": "2",
+    "locationId": "11",
+    "available": 25,
+    "total": 98
+  },
+  {
+    "productId": "3",
+    "locationId": "11",
+    "available": 15,
+    "total": 28
+  },
+  {
+    "productId": "4",
+    "locationId": "11",
+    "available": 56,
+    "total": 97
+  },
+  {
+    "productId": "5",
+    "locationId": "11",
+    "available": 20,
+    "total": 30
+  },
+  {
+    "productId": "6",
+    "locationId": "11",
+    "available": 8,
+    "total": 19
+  },
+  {
+    "productId": "7",
+    "locationId": "11",
+    "available": 21,
+    "total": 23
+  },
+  {
+    "productId": "8",
+    "locationId": "11",
+    "available": 35,
+    "total": 63
+  },
+  {
+    "productId": "9",
+    "locationId": "11",
+    "available": 0,
+    "total": 7
+  },
+  {
+    "productId": "10",
+    "locationId": "11",
+    "available": 0,
+    "total": 2
+  },
+  {
+    "productId": "11",
+    "locationId": "11",
+    "available": 1,
+    "total": 6
+  },
+  {
+    "productId": "12",
+    "locationId": "11",
+    "available": 67,
+    "total": 77
+  },
+  {
+    "productId": "13",
+    "locationId": "11",
+    "available": 7,
+    "total": 51
+  },
+  {
+    "productId": "14",
+    "locationId": "11",
+    "available": 39,
+    "total": 96
+  },
+  {
+    "productId": "15",
+    "locationId": "11",
+    "available": 36,
+    "total": 74
+  },
+  {
+    "productId": "16",
+    "locationId": "11",
+    "available": 15,
+    "total": 73
+  },
+  {
+    "productId": "17",
+    "locationId": "11",
+    "available": 36,
+    "total": 63
+  },
+  {
+    "productId": "18",
+    "locationId": "11",
+    "available": 0,
+    "total": 19
+  },
+  {
+    "productId": "19",
+    "locationId": "11",
+    "available": 24,
+    "total": 94
+  },
+  {
+    "productId": "20",
+    "locationId": "11",
+    "available": 8,
+    "total": 38
+  },
+  {
+    "productId": "21",
+    "locationId": "11",
+    "available": 41,
+    "total": 58
+  },
+  {
+    "productId": "22",
+    "locationId": "11",
+    "available": 18,
+    "total": 22
+  },
+  {
+    "productId": "23",
+    "locationId": "11",
+    "available": 25,
+    "total": 37
+  },
+  {
+    "productId": "24",
+    "locationId": "11",
+    "available": 39,
+    "total": 60
+  },
+  {
+    "productId": "25",
+    "locationId": "11",
+    "available": 30,
+    "total": 55
+  },
+  {
+    "productId": "26",
+    "locationId": "11",
+    "available": 4,
+    "total": 4
+  },
+  {
+    "productId": "27",
+    "locationId": "11",
+    "available": 6,
+    "total": 17
+  },
+  {
+    "productId": "28",
+    "locationId": "11",
+    "available": 63,
+    "total": 82
+  },
+  {
+    "productId": "29",
+    "locationId": "11",
+    "available": 30,
+    "total": 76
+  },
+  {
+    "productId": "30",
+    "locationId": "11",
+    "available": 13,
+    "total": 31
+  },
+  {
+    "productId": "31",
+    "locationId": "11",
+    "available": 10,
+    "total": 59
+  },
+  {
+    "productId": "32",
+    "locationId": "11",
+    "available": 39,
+    "total": 80
+  },
+  {
+    "productId": "33",
+    "locationId": "11",
+    "available": 69,
+    "total": 89
+  },
+  {
+    "productId": "34",
+    "locationId": "11",
+    "available": 62,
+    "total": 93
+  },
+  {
+    "productId": "35",
+    "locationId": "11",
+    "available": 13,
+    "total": 27
+  },
+  {
+    "productId": "36",
+    "locationId": "11",
+    "available": 8,
+    "total": 22
+  },
+  {
+    "productId": "37",
+    "locationId": "11",
+    "available": 0,
+    "total": 31
+  },
+  {
+    "productId": "38",
+    "locationId": "11",
+    "available": 9,
+    "total": 79
+  },
+  {
+    "productId": "39",
+    "locationId": "11",
+    "available": 6,
+    "total": 49
+  },
+  {
+    "productId": "40",
+    "locationId": "11",
+    "available": 39,
+    "total": 40
+  },
+  {
+    "productId": "41",
+    "locationId": "11",
+    "available": 1,
+    "total": 22
+  },
+  {
+    "productId": "42",
+    "locationId": "11",
+    "available": 12,
+    "total": 82
+  },
+  {
+    "productId": "43",
+    "locationId": "11",
+    "available": 1,
+    "total": 7
+  },
+  {
+    "productId": "44",
+    "locationId": "11",
+    "available": 15,
+    "total": 26
+  },
+  {
+    "productId": "45",
+    "locationId": "11",
+    "available": 22,
+    "total": 31
+  },
+  {
+    "productId": "46",
+    "locationId": "11",
+    "available": 64,
+    "total": 65
+  },
+  {
+    "productId": "47",
+    "locationId": "11",
+    "available": 10,
+    "total": 99
+  },
+  {
+    "productId": "48",
+    "locationId": "11",
+    "available": 26,
+    "total": 56
+  },
+  {
+    "productId": "49",
+    "locationId": "11",
+    "available": 14,
+    "total": 19
+  },
+  {
+    "productId": "50",
+    "locationId": "11",
+    "available": 51,
+    "total": 55
+  },
+  {
+    "productId": "51",
+    "locationId": "11",
+    "available": 25,
+    "total": 29
+  },
+  {
+    "productId": "52",
+    "locationId": "11",
+    "available": 31,
+    "total": 37
+  },
+  {
+    "productId": "53",
+    "locationId": "11",
+    "available": 35,
+    "total": 71
+  },
+  {
+    "productId": "54",
+    "locationId": "11",
+    "available": 5,
+    "total": 61
+  },
+  {
+    "productId": "55",
+    "locationId": "11",
+    "available": 4,
+    "total": 26
+  },
+  {
+    "productId": "56",
+    "locationId": "11",
+    "available": 29,
+    "total": 50
+  },
+  {
+    "productId": "57",
+    "locationId": "11",
+    "available": 15,
+    "total": 34
+  },
+  {
+    "productId": "58",
+    "locationId": "11",
+    "available": 30,
+    "total": 38
+  },
+  {
+    "productId": "59",
+    "locationId": "11",
+    "available": 54,
+    "total": 71
+  },
+  {
+    "productId": "60",
+    "locationId": "11",
+    "available": 6,
+    "total": 43
+  },
+  {
+    "productId": "61",
+    "locationId": "11",
+    "available": 40,
+    "total": 80
+  },
+  {
+    "productId": "62",
+    "locationId": "11",
+    "available": 32,
+    "total": 33
+  },
+  {
+    "productId": "63",
+    "locationId": "11",
+    "available": 44,
+    "total": 53
+  },
+  {
+    "productId": "64",
+    "locationId": "11",
+    "available": 10,
+    "total": 68
+  },
+  {
+    "productId": "65",
+    "locationId": "11",
+    "available": 11,
+    "total": 13
+  },
+  {
+    "productId": "66",
+    "locationId": "11",
+    "available": 7,
+    "total": 40
+  },
+  {
+    "productId": "67",
+    "locationId": "11",
+    "available": 5,
+    "total": 20
+  },
+  {
+    "productId": "68",
+    "locationId": "11",
+    "available": 30,
+    "total": 40
+  },
+  {
+    "productId": "69",
+    "locationId": "11",
+    "available": 6,
+    "total": 48
+  },
+  {
+    "productId": "70",
+    "locationId": "11",
+    "available": 7,
+    "total": 53
+  },
+  {
+    "productId": "71",
+    "locationId": "11",
+    "available": 2,
+    "total": 21
+  },
+  {
+    "productId": "72",
+    "locationId": "11",
+    "available": 25,
+    "total": 56
+  },
+  {
+    "productId": "73",
+    "locationId": "11",
+    "available": 13,
+    "total": 85
+  },
+  {
+    "productId": "74",
+    "locationId": "11",
+    "available": 63,
+    "total": 67
+  },
+  {
+    "productId": "75",
+    "locationId": "11",
+    "available": 9,
+    "total": 11
+  },
+  {
+    "productId": "76",
+    "locationId": "11",
+    "available": 18,
+    "total": 46
+  },
+  {
+    "productId": "77",
+    "locationId": "11",
+    "available": 7,
+    "total": 88
+  },
+  {
+    "productId": "78",
+    "locationId": "11",
+    "available": 36,
+    "total": 55
+  },
+  {
+    "productId": "79",
+    "locationId": "11",
+    "available": 8,
+    "total": 33
+  },
+  {
+    "productId": "80",
+    "locationId": "11",
+    "available": 63,
+    "total": 73
+  },
+  {
+    "productId": "81",
+    "locationId": "11",
+    "available": 36,
+    "total": 71
+  },
+  {
+    "productId": "82",
+    "locationId": "11",
+    "available": 2,
+    "total": 5
+  },
+  {
+    "productId": "83",
+    "locationId": "11",
+    "available": 11,
+    "total": 11
+  },
+  {
+    "productId": "84",
+    "locationId": "11",
+    "available": 21,
+    "total": 39
+  },
+  {
+    "productId": "85",
+    "locationId": "11",
+    "available": 90,
+    "total": 91
+  },
+  {
+    "productId": "86",
+    "locationId": "11",
+    "available": 1,
+    "total": 2
+  },
+  {
+    "productId": "5",
+    "locationId": "11",
+    "available": 36,
+    "total": 47
+  },
+  {
+    "productId": "2",
+    "locationId": "12",
+    "available": 6,
+    "total": 7
+  },
+  {
+    "productId": "3",
+    "locationId": "12",
+    "available": 15,
+    "total": 23
+  },
+  {
+    "productId": "4",
+    "locationId": "12",
+    "available": 1,
+    "total": 1
+  },
+  {
+    "productId": "5",
+    "locationId": "12",
+    "available": 37,
+    "total": 42
+  },
+  {
+    "productId": "6",
+    "locationId": "12",
+    "available": 22,
+    "total": 24
+  },
+  {
+    "productId": "7",
+    "locationId": "12",
+    "available": 12,
+    "total": 13
+  },
+  {
+    "productId": "8",
+    "locationId": "12",
+    "available": 4,
+    "total": 25
+  },
+  {
+    "productId": "9",
+    "locationId": "12",
+    "available": 32,
+    "total": 87
+  },
+  {
+    "productId": "10",
+    "locationId": "12",
+    "available": 9,
+    "total": 31
+  },
+  {
+    "productId": "11",
+    "locationId": "12",
+    "available": 2,
+    "total": 38
+  },
+  {
+    "productId": "12",
+    "locationId": "12",
+    "available": 66,
+    "total": 88
+  },
+  {
+    "productId": "13",
+    "locationId": "12",
+    "available": 4,
+    "total": 15
+  },
+  {
+    "productId": "14",
+    "locationId": "12",
+    "available": 9,
+    "total": 88
+  },
+  {
+    "productId": "15",
+    "locationId": "12",
+    "available": 18,
+    "total": 72
+  },
+  {
+    "productId": "16",
+    "locationId": "12",
+    "available": 13,
+    "total": 26
+  },
+  {
+    "productId": "17",
+    "locationId": "12",
+    "available": 20,
+    "total": 55
+  },
+  {
+    "productId": "18",
+    "locationId": "12",
+    "available": 17,
+    "total": 76
+  },
+  {
+    "productId": "19",
+    "locationId": "12",
+    "available": 28,
+    "total": 58
+  },
+  {
+    "productId": "20",
+    "locationId": "12",
+    "available": 78,
+    "total": 99
+  },
+  {
+    "productId": "21",
+    "locationId": "12",
+    "available": 7,
+    "total": 12
+  },
+  {
+    "productId": "22",
+    "locationId": "12",
+    "available": 4,
+    "total": 13
+  },
+  {
+    "productId": "23",
+    "locationId": "12",
+    "available": 12,
+    "total": 96
+  },
+  {
+    "productId": "24",
+    "locationId": "12",
+    "available": 82,
+    "total": 84
+  },
+  {
+    "productId": "25",
+    "locationId": "12",
+    "available": 29,
+    "total": 64
+  },
+  {
+    "productId": "26",
+    "locationId": "12",
+    "available": 5,
+    "total": 7
+  },
+  {
+    "productId": "27",
+    "locationId": "12",
+    "available": 3,
+    "total": 35
+  },
+  {
+    "productId": "28",
+    "locationId": "12",
+    "available": 23,
+    "total": 46
+  },
+  {
+    "productId": "29",
+    "locationId": "12",
+    "available": 21,
+    "total": 39
+  },
+  {
+    "productId": "30",
+    "locationId": "12",
+    "available": 19,
+    "total": 21
+  },
+  {
+    "productId": "31",
+    "locationId": "12",
+    "available": 24,
+    "total": 73
+  },
+  {
+    "productId": "32",
+    "locationId": "12",
+    "available": 51,
+    "total": 89
+  },
+  {
+    "productId": "33",
+    "locationId": "12",
+    "available": 22,
+    "total": 32
+  },
+  {
+    "productId": "34",
+    "locationId": "12",
+    "available": 56,
+    "total": 95
+  },
+  {
+    "productId": "35",
+    "locationId": "12",
+    "available": 47,
+    "total": 95
+  },
+  {
+    "productId": "36",
+    "locationId": "12",
+    "available": 17,
+    "total": 24
+  },
+  {
+    "productId": "37",
+    "locationId": "12",
+    "available": 0,
+    "total": 0
+  },
+  {
+    "productId": "38",
+    "locationId": "12",
+    "available": 14,
+    "total": 53
+  },
+  {
+    "productId": "39",
+    "locationId": "12",
+    "available": 65,
+    "total": 67
+  },
+  {
+    "productId": "40",
+    "locationId": "12",
+    "available": 64,
+    "total": 95
+  },
+  {
+    "productId": "41",
+    "locationId": "12",
+    "available": 5,
+    "total": 5
+  },
+  {
+    "productId": "42",
+    "locationId": "12",
+    "available": 7,
+    "total": 10
+  },
+  {
+    "productId": "43",
+    "locationId": "12",
+    "available": 34,
+    "total": 45
+  },
+  {
+    "productId": "44",
+    "locationId": "12",
+    "available": 0,
+    "total": 3
+  },
+  {
+    "productId": "45",
+    "locationId": "12",
+    "available": 20,
+    "total": 67
+  },
+  {
+    "productId": "46",
+    "locationId": "12",
+    "available": 58,
+    "total": 92
+  },
+  {
+    "productId": "47",
+    "locationId": "12",
+    "available": 21,
+    "total": 70
+  },
+  {
+    "productId": "48",
+    "locationId": "12",
+    "available": 56,
+    "total": 62
+  },
+  {
+    "productId": "49",
+    "locationId": "12",
+    "available": 0,
+    "total": 5
+  },
+  {
+    "productId": "50",
+    "locationId": "12",
+    "available": 16,
+    "total": 97
+  },
+  {
+    "productId": "51",
+    "locationId": "12",
+    "available": 6,
+    "total": 46
+  },
+  {
+    "productId": "52",
+    "locationId": "12",
+    "available": 58,
+    "total": 84
+  },
+  {
+    "productId": "53",
+    "locationId": "12",
+    "available": 25,
+    "total": 42
+  },
+  {
+    "productId": "54",
+    "locationId": "12",
+    "available": 13,
+    "total": 40
+  },
+  {
+    "productId": "55",
+    "locationId": "12",
+    "available": 18,
+    "total": 34
+  },
+  {
+    "productId": "56",
+    "locationId": "12",
+    "available": 44,
+    "total": 92
+  },
+  {
+    "productId": "57",
+    "locationId": "12",
+    "available": 0,
+    "total": 19
+  },
+  {
+    "productId": "58",
+    "locationId": "12",
+    "available": 13,
+    "total": 67
+  },
+  {
+    "productId": "59",
+    "locationId": "12",
+    "available": 18,
+    "total": 38
+  },
+  {
+    "productId": "60",
+    "locationId": "12",
+    "available": 7,
+    "total": 7
+  },
+  {
+    "productId": "61",
+    "locationId": "12",
+    "available": 6,
+    "total": 53
+  },
+  {
+    "productId": "62",
+    "locationId": "12",
+    "available": 4,
+    "total": 25
+  },
+  {
+    "productId": "63",
+    "locationId": "12",
+    "available": 31,
+    "total": 59
+  },
+  {
+    "productId": "64",
+    "locationId": "12",
+    "available": 25,
+    "total": 40
+  },
+  {
+    "productId": "65",
+    "locationId": "12",
+    "available": 2,
+    "total": 81
+  },
+  {
+    "productId": "66",
+    "locationId": "12",
+    "available": 23,
+    "total": 81
+  },
+  {
+    "productId": "67",
+    "locationId": "12",
+    "available": 9,
+    "total": 33
+  },
+  {
+    "productId": "68",
+    "locationId": "12",
+    "available": 2,
+    "total": 37
+  },
+  {
+    "productId": "69",
+    "locationId": "12",
+    "available": 53,
+    "total": 64
+  },
+  {
+    "productId": "70",
+    "locationId": "12",
+    "available": 21,
+    "total": 22
+  },
+  {
+    "productId": "71",
+    "locationId": "12",
+    "available": 7,
+    "total": 45
+  },
+  {
+    "productId": "72",
+    "locationId": "12",
+    "available": 9,
+    "total": 25
+  },
+  {
+    "productId": "73",
+    "locationId": "12",
+    "available": 0,
+    "total": 40
+  },
+  {
+    "productId": "74",
+    "locationId": "12",
+    "available": 21,
+    "total": 34
+  },
+  {
+    "productId": "75",
+    "locationId": "12",
+    "available": 33,
+    "total": 87
+  },
+  {
+    "productId": "76",
+    "locationId": "12",
+    "available": 44,
+    "total": 48
+  },
+  {
+    "productId": "77",
+    "locationId": "12",
+    "available": 64,
+    "total": 69
+  },
+  {
+    "productId": "78",
+    "locationId": "12",
+    "available": 31,
+    "total": 56
+  },
+  {
+    "productId": "79",
+    "locationId": "12",
+    "available": 11,
+    "total": 12
+  },
+  {
+    "productId": "80",
+    "locationId": "12",
+    "available": 3,
+    "total": 7
+  },
+  {
+    "productId": "81",
+    "locationId": "12",
+    "available": 26,
+    "total": 74
+  },
+  {
+    "productId": "82",
+    "locationId": "12",
+    "available": 29,
+    "total": 46
+  },
+  {
+    "productId": "83",
+    "locationId": "12",
+    "available": 1,
+    "total": 5
+  },
+  {
+    "productId": "84",
+    "locationId": "12",
+    "available": 35,
+    "total": 37
+  },
+  {
+    "productId": "85",
+    "locationId": "12",
+    "available": 12,
+    "total": 100
+  },
+  {
+    "productId": "86",
+    "locationId": "12",
+    "available": 9,
+    "total": 18
+  },
+  {
+    "productId": "5",
+    "locationId": "12",
+    "available": 49,
+    "total": 64
+  }
+]
