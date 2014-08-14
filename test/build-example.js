@@ -46,11 +46,12 @@ module.exports = function buildExample(args, callback) {
     pwd(),
     which('slc'),
     exec('slc -v', {silent: true}).output.split('\n')[0].split(' ')[1]
- );
+  );
 
   rm('-rf', '_suite');
   exec('slc example suite _suite --no-install', {silent: true});
   cd('_suite');
+  assert(test('-f', 'package.json'));
   assert(!test('-d', 'node_modules'));
 
   var argv = ['node', 'slb'].concat(args);
