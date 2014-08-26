@@ -1,78 +1,121 @@
-2014-07-22, Version 0.1.2
+2014-08021, Version v0.2.0
+==========================
 
-* Allow building onto an identical branch (Sam Roberts)
+ * test: replace slc dep with static fixture (Ryan Graham)
+
+ * test: validate test setup (Ryan Graham)
+
+ * test: ensure build can be run on HEAD (Ryan Graham)
+
+ * Refactor common git ref lookup into utility (Ryan Graham)
+
+ * Don't commit build results if unchanged (Ryan Graham)
+
+ * Only merge HEAD into deploy if necessary (Ryan Graham)
+
+ * Make --onto a modifier for --commit (Ryan Graham)
+
+ * git: Override GIT_INDEX_FILE for all git commands (Ryan Graham)
+
+ * Ensure create --onto branch if it doesn't exist (Ryan Graham)
+
+ * Use git detection to inform defaults (Ryan Graham)
+
+ * test: sls-sample-app loopback-example-app rename (Ryan Graham)
+
+ * test: replace onto tests with shell script (Ryan Graham)
+
+ * test: support mix of JS and shell based tests (Ryan Graham)
+
+ * onto: fix typo in usage message (Sam Roberts)
+
+ * Update package license to match LICENSE.md (Sam Roberts)
 
 
-2014-07-21, Version 0.1.1
+2014-07-22, Version v0.1.2
+==========================
 
-* docs: clarify typical git workflow (Sam Roberts)
+ * Allow building onto an identical branch (Sam Roberts)
 
 
-2014-06-19, Version 0.1.0
+2014-07-21, Version v0.1.1
+==========================
 
-* Increment version because 0.0.x series is special to npm.
+ * docs: clarify typical git workflow (Sam Roberts)
 
-2014-06-19, Version 0.0.1
 
-* docs: update README with usage (Sam Roberts)
+2014-06-19, Version v0.1.0
+==========================
 
-* usage: fix missing command name in usage message (Sam Roberts)
 
-* log: show git commands during --onto and --commit (Sam Roberts)
 
-* log: show commands during --install,bundle,pack (Sam Roberts)
+2014-06-19, Version v0.0.1
+==========================
 
-* install: prune dev dependencies after build script (Sam Roberts)
+ * docs: update README with usage (Sam Roberts)
 
-* pack: remove npm debug messages from output (Sam Roberts)
+ * usage: fix missing command name in usage message (Sam Roberts)
 
-* bundle: accept packages with no dependencies (Sam Roberts)
+ * log: show git commands during --onto and --commit (Sam Roberts)
 
-* log: log when beginning a long-running command (Sam Roberts)
+ * log: show commands during --install,bundle,pack (Sam Roberts)
 
-* doc: update README and other docs pre-publish (Sam Roberts)
+ * install: prune dev dependencies after build script (Sam Roberts)
 
-* readme: update with latest usage (Sam Roberts)
+ * pack: remove npm debug messages from output (Sam Roberts)
 
-* log: ensure each action logs on complete (Sam Roberts)
+ * bundle: accept packages with no dependencies (Sam Roberts)
 
-* bundle,pack: log the actions taken (Sam Roberts)
+ * log: log when beginning a long-running command (Sam Roberts)
 
-* git: remove unused $0 argument to git.onto() (Sam Roberts)
+ * doc: update README and other docs pre-publish (Sam Roberts)
 
-* commit: commit build products into git (Sam Roberts)
+ * readme: update with latest usage (Sam Roberts)
 
-* bundle: bundle only dependencies and optional deps (Sam Roberts)
+ * log: ensure each action logs on complete (Sam Roberts)
 
-* bundle: warn on problematic or incomplete config (Sam Roberts)
+ * bundle,pack: log the actions taken (Sam Roberts)
 
-* onto: commit source tree onto a deploy branch (Sam Roberts)
+ * git: remove unused $0 argument to git.onto() (Sam Roberts)
 
-* doc: add README.md and update --help output (Sam Roberts)
+ * commit: commit build products into git (Sam Roberts)
 
-* pack: place archive in parent directory (Sam Roberts)
+ * bundle: bundle only dependencies and optional deps (Sam Roberts)
 
-* test: use strong-cli as a dev dependency (Sam Roberts)
+ * bundle: warn on problematic or incomplete config (Sam Roberts)
 
-* Implement --bundle, so dependencies are packed (Sam Roberts)
+ * onto: commit source tree onto a deploy branch (Sam Roberts)
 
-* Implement --pack, to create an archive (Sam Roberts)
+ * doc: add README.md and update --help output (Sam Roberts)
 
-* Implement --scripts, to build binary addons (Sam Roberts)
+ * pack: place archive in parent directory (Sam Roberts)
 
-* Refactor build test setup so it can be reused (Sam Roberts)
+ * test: use strong-cli as a dev dependency (Sam Roberts)
 
-* Use option parser, and test option parsing (Sam Roberts)
+ * Implement --bundle, so dependencies are packed (Sam Roberts)
 
-* Implement running of custom package build script (Sam Roberts)
+ * Implement --pack, to create an archive (Sam Roberts)
 
-* Implement usage and version options (Sam Roberts)
+ * Implement --scripts, to build binary addons (Sam Roberts)
 
-* Implement npm install without build scripts (Sam Roberts)
+ * Refactor build test setup so it can be reused (Sam Roberts)
 
-* Add tap test script (Sam Roberts)
+ * Use option parser, and test option parsing (Sam Roberts)
 
-* Add package.json and slb stub (Sam Roberts)
+ * Implement running of custom package build script (Sam Roberts)
 
-* License and contribution agreement (Sam Roberts)
+ * Implement usage and version options (Sam Roberts)
 
+ * Implement npm install without build scripts (Sam Roberts)
+
+ * Add tap test script (Sam Roberts)
+
+ * Add package.json and slb stub (Sam Roberts)
+
+ * License and contribution agreement (Sam Roberts)
+
+
+2014-05-20, Version INITIAL
+===========================
+
+ * First release!
