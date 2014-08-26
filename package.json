@@ -1,20 +1,20 @@
 {
   "name": "strong-build",
   "description": "prepare a node package for deployment",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/strongloop/strong-build.git"
   },
   "author": "engineering@strongloop.com",
   "license": {
-    "name": "Dual MIT/StrongLoop",
+    "name": "Dual Artistic/StrongLoop",
     "url": "https://github.com/strongloop/strong-build/blob/master/LICENSE.md"
   },
   "readmeFilename": "README.md",
   "main": "index.js",
   "scripts": {
-    "test": "tap --timeout=300 ./test/test-*.js"
+    "test": "tap --timeout=300 ./test/test-*"
   },
   "bin": {
     "sl-build": "./bin/slb",
@@ -29,8 +29,8 @@
     "lodash": "^2.4.1"
   },
   "devDependencies": {
-    "tap": "^0.4.9",
     "async": "^0.9.0",
+    "tap": "git://github.com/strongloop-forks/node-tap#production",
     "tar": "^0.1.19"
   }
 }

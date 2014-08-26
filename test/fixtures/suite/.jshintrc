@@ -1,0 +1,7 @@
+{
+  "camelcase": true
+  , "quotmark": "single"
+  , "eqnull": true
+  , "node": true
+  , "laxcomma": true
+}

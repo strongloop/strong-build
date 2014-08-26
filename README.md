@@ -75,11 +75,15 @@ usage: slb [options]
 
 Build a node application package.
 
-With no options, the default is to install, bundle, and pack. This
-would be typical for an `npm pack` based deployment.
+With no options, the default depends on whether a git repository is
+detected or not.
 
-When committing build products to git, a more typical sequence would
-be onto, install, commit.
+If a git repository is detected, the default is to install and commit
+the build results to the "deploy" branch, which will be created if it
+does not already exist.
+
+If no git repository is detected, the default is to bundle, install,
+and pack the build results into a <package-name>-<version>.tgz file.
 
 Options:
   -h,--help       Print this message and exit.
@@ -90,6 +94,7 @@ Options:
   -p,--pack       Pack into a publishable archive (with dependencies).
 
 Git specific options:
-  -onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.
-  -c,--commit     Commit build output to current branch.
+  -c,--commit     Commit build output (branch specified by --onto).
+  --onto BRANCH   Branch to commit build results to, creating if
+                  necessary. ("deploy", by default).
 ```

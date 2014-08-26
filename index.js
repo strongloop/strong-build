@@ -14,11 +14,15 @@ function printHelp($0, prn) {
   prn('');
   prn('Build a node application package.');
   prn('');
-  prn('With no options, the default is to install, bundle, and pack. This');
-  prn('would be typical for an `npm pack` based deployment.');
+  prn('With no options, the default depends on whether a git repository is');
+  prn('detected or not.');
   prn('');
-  prn('When committing build products to git, a more typical sequence would');
-  prn('be onto, install, commit.');
+  prn('If a git repository is detected, the default is to install and commit');
+  prn('the build results to the "deploy" branch, which will be created if it');
+  prn('does not already exist.');
+  prn('');
+  prn('If no git repository is detected, the default is to bundle, install,');
+  prn('and pack the build results into a <package-name>-<version>.tgz file.');
   prn('');
   prn('Options:');
   prn('  -h,--help       Print this message and exit.');
@@ -29,8 +33,9 @@ function printHelp($0, prn) {
   prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
   prn('');
   prn('Git specific options:');
-  prn('  -onto BRANCH    Merge current HEAD to BRANCH, and checkout BRANCH.');
-  prn('  -c,--commit     Commit build output to current branch.');
+  prn('  -c,--commit     Commit build output (branch specified by --onto).');
+  prn('  --onto BRANCH   Branch to commit build results to, creating if');
+  prn('                  necessary. ("deploy", by default).');
 }
 
 function runCommand(cmd, callback) {
@@ -90,7 +95,7 @@ exports.build = function build(argv, callback) {
     ].join(''),
     argv);
   var option;
-  var onto;
+  var onto = 'deploy';
   var install;
   var scripts;
   var bundle;
@@ -140,14 +145,27 @@ exports.build = function build(argv, callback) {
 
   // With no actions selected, do everything we can (onto requires an argument,
   // so we can't do it automatically).
-  if (!onto && !install && !bundle && !pack && !commit) {
-    install = bundle = pack = true;
+  if (parser.optind() === 2) {
+    install = true;
+    if (git.isGit()) {
+      commit = true;
+      bundle = pack = false;
+    } else {
+      commit = false;
+      bundle = pack = true;
+    }
+  }
+
+  if (commit && !git.isGit()) {
+    console.error('Cannot perform commit on non-git working directory');
+    return callback(Error('usage'));
   }
 
   var steps = [];
 
-  if (onto) {
-    steps.push(doGitOnto);
+  if (commit) {
+    steps.push(doEnsureGitBranch);
+    steps.push(doGitSyncBranch);
   }
 
   if (install) {
@@ -168,11 +186,24 @@ exports.build = function build(argv, callback) {
 
   vasync.pipeline({funcs: steps}, callback);
 
-  function doGitOnto(_, callback) {
+  function doEnsureGitBranch(_, callback) {
     try {
-      var info = git.onto(onto);
-      console.log('Merged source tree of `%s` onto `%s`',
-        info.srcBranch, info.dstBranch);
+      git.ensureBranch(onto);
+      return callback();
+    } catch(er) {
+      console.error('%s', er.message);
+      return callback(er);
+    }
+  }
+
+  function doGitSyncBranch(_, callback) {
+    try {
+      var info = git.syncBranch(onto);
+      if (info.srcBranch && info.dstBranch)
+        console.log('Merged source tree of `%s` onto `%s`',
+          info.srcBranch, info.dstBranch);
+      else
+        console.log('Not merging HEAD into `%s`, already up to date.', onto);
       return callback();
     } catch(er) {
       console.error('%s', er.message);
@@ -272,8 +303,11 @@ exports.build = function build(argv, callback) {
 
   function doGitCommit(_, callback) {
     try {
-      var info = git.commitAll();
-      console.log('Committed build products onto `%s`', info.branch);
+      var info = git.commitAll(onto);
+      if (info.branch)
+        console.log('Committed build products onto `%s`', info.branch);
+      else
+        console.log('Build products already up to date on `%s`', onto);
       return callback();
     } catch(er) {
       console.error('%s', er.message);
