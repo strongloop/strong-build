@@ -1,4 +1,4 @@
-2014-08021, Version v0.2.0
+2014-08-26, Version v0.2.0
 ==========================
 
  * test: replace slc dep with static fixture (Ryan Graham)
