@@ -2,6 +2,17 @@
   "name": "strong-build",
   "description": "prepare a node package for deployment",
   "version": "0.2.0",
+  "keywords": [
+    "StrongLoop",
+    "build",
+    "bundle",
+    "dependencies",
+    "git",
+    "heroku",
+    "npm",
+    "openshift",
+    "slc"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/strongloop/strong-build.git"
