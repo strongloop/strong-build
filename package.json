@@ -1,7 +1,18 @@
 {
   "name": "strong-build",
   "description": "prepare a node package for deployment",
-  "version": "0.2.0",
+  "version": "0.2.1",
+  "keywords": [
+    "StrongLoop",
+    "build",
+    "bundle",
+    "dependencies",
+    "git",
+    "heroku",
+    "npm",
+    "openshift",
+    "slc"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/strongloop/strong-build.git"
@@ -25,7 +36,7 @@
     "shelljs": "^0.3.0",
     "posix-getopt": "^1.0.0",
     "vasync": "^1.4.3",
-    "json-file-plus": "^0.2.3",
+    "json-file-plus": "~1.0.0",
     "lodash": "^2.4.1"
   },
   "devDependencies": {

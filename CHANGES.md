@@ -1,4 +1,16 @@
-2014-08021, Version v0.2.0
+2014-09-02, Version 0.2.1
+=========================
+
+ * package: update json-file-plus to avoid deprecated (Sam Roberts)
+
+ * package: update README (Sam Roberts)
+
+ * package: add keywords for npm search (Sam Roberts)
+
+ * package: rename changelog and fix date format (Sam Roberts)
+
+
+2014-08-26, Version v0.2.0
 ==========================
 
  * test: replace slc dep with static fixture (Ryan Graham)
