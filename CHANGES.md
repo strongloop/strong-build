@@ -1,3 +1,9 @@
+2014-10-02, Version 1.0.0
+=========================
+
+ * Update contribution guidelines (Ryan Graham)
+
+
 2014-09-02, Version 0.2.1
 =========================
 
