@@ -286,6 +286,11 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmPack(_, callback) {
+    var ignoreFiles = shell.find('node_modules').filter(function(file) {
+      return file.match(/\.(git|npm)ignore$/);
+    });
+    shell.rm('-f', ignoreFiles);
+
     runWait('npm --quiet pack', function(er, output) {
       if (er) return callback(er);
 
