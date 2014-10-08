@@ -145,7 +145,7 @@ exports.build = function build(argv, callback) {
 
   // With no actions selected, do everything we can (onto requires an argument,
   // so we can't do it automatically).
-  if (parser.optind() === 2) {
+  if (!(install || pack || commit || bundle)) {
     install = true;
     if (git.isGit()) {
       commit = true;
