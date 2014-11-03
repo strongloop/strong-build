@@ -1,3 +1,13 @@
+2014-10-08, Version 1.0.1
+===========================
+
+ * Ensure default steps run when using --script only (Krishna Raman)
+
+ * git: don't rely on git-symbolic-ref --short (Ryan Graham)
+
+ * Ignore .(git|npm)ignore when building packs (Krishna Raman)
+
+
 2014-10-02, Version 1.0.0
 =========================
 
