@@ -18,7 +18,8 @@
     "loopback-connector-mysql": "~1.4.1",
     "weighted": "~0.2.2",
     "shuffle": "~0.2.1",
-    "text-table": "~0.2.0"
+    "text-table": "~0.2.0",
+    "node-syslog": "^1.1.7"
   },
   "optionalDependencies": {
     "loopback-connector-oracle": "~1.4.1",
