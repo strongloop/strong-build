@@ -212,15 +212,16 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmInstall(_, callback) {
+    var pkg = require(path.resolve('package.json'));
     var install = 'npm install';
     if (!scripts) {
       install += ' --ignore-scripts';
     }
-    var steps = [
-      runStep(install),
-      runStep('npm run build'),
-      runStep('npm prune --production'),
-    ];
+    var steps = [ runStep(install) ];
+    if (pkg.scripts && pkg.scripts.build) {
+      steps.push(runStep('npm run build'));
+    }
+    steps.push(runStep('npm prune --production'));
     vasync.pipeline({ funcs: steps }, function(er) {
       return callback(er);
     });

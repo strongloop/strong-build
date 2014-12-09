@@ -1,5 +1,17 @@
-2014-10-08, Version 1.0.1
-===========================
+2014-12-09, Version 1.0.2
+=========================
+
+ * test: use strong-fork-syslog for tests (Ryan Graham)
+
+ * internal: add info for sync branch debugging (Ryan Graham)
+
+ * Skip 'npm run build' if no build script (Ryan Graham)
+
+ * package: use debug v2.x in all strongloop deps (Sam Roberts)
+
+
+2014-11-03, Version 1.0.1
+=========================
 
  * Ensure default steps run when using --script only (Krishna Raman)
 
@@ -26,8 +38,8 @@
  * package: rename changelog and fix date format (Sam Roberts)
 
 
-2014-08-26, Version v0.2.0
-==========================
+2014-08-26, Version 0.2.0
+=========================
 
  * test: replace slc dep with static fixture (Ryan Graham)
 
@@ -60,25 +72,25 @@
  * Update package license to match LICENSE.md (Sam Roberts)
 
 
-2014-07-22, Version v0.1.2
-==========================
+2014-07-22, Version 0.1.2
+=========================
 
  * Allow building onto an identical branch (Sam Roberts)
 
 
-2014-07-21, Version v0.1.1
-==========================
+2014-07-21, Version 0.1.1
+=========================
 
  * docs: clarify typical git workflow (Sam Roberts)
 
 
-2014-06-19, Version v0.1.0
-==========================
+2014-06-19, Version 0.1.0
+=========================
 
 
 
-2014-06-19, Version v0.0.1
-==========================
+2014-06-19, Version 0.0.1
+=========================
 
  * docs: update README with usage (Sam Roberts)
 

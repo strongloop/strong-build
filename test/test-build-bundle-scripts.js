@@ -6,11 +6,11 @@ build(['--install', '--pack', '--bundle', '--scripts'], function(er) {
   var info = fs.readJsonSync('package.json');
   var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));
 
-  // node-syslog build directory should be present
+  // strong-fork-syslog build directory should be present
 
   tar.list(tgz, function(er, paths) {
     var syslogBuildPaths = paths.filter(function(file) {
-      return file.match(/node-syslog\/build/);
+      return file.match(/strong-fork-syslog\/build/);
     });
 
     debug('tarfile %s contains syslog build dirs:', tgz, syslogBuildPaths);

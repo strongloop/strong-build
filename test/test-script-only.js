@@ -17,7 +17,7 @@ require('./build-example')(['--scripts'], function(er) {
   assert(bundled.length > 0, 'dependencies should be bundled');
 
   var syslogBuildPaths = paths.filter(function(file) {
-    return file.match(/node-syslog\/build/);
+    return file.match(/strong-fork-syslog\/build/);
   });
 
   debug('git branch contains syslog build dirs:', syslogBuildPaths);
