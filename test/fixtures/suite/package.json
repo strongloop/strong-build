@@ -19,7 +19,7 @@
     "weighted": "~0.2.2",
     "shuffle": "~0.2.1",
     "text-table": "~0.2.0",
-    "node-syslog": "^1.1.7"
+    "strong-fork-syslog": "^1.2.1"
   },
   "optionalDependencies": {
     "loopback-connector-oracle": "~1.4.1",
