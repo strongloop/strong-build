@@ -13,7 +13,6 @@
     "cors": "~2.3.1",
     "loopback-explorer": "~1.1.1",
     "loopback-connector-rest": "~1.1.4",
-    "loopback-connector-oracle": "~1.4.1",
     "loopback-connector-mongodb": "~1.4.1",
     "loopback-connector-mysql": "~1.4.1",
     "weighted": "~0.2.2",
@@ -22,7 +21,6 @@
     "strong-fork-syslog": "^1.2.1"
   },
   "optionalDependencies": {
-    "loopback-connector-oracle": "~1.4.1",
     "loopback-connector-mongodb": "~1.4.1",
     "loopback-connector-mysql": "~1.4.1",
     "weighted": "~0.2.2",
