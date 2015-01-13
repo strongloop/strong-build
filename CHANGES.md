@@ -1,3 +1,11 @@
+2015-01-13, Version 1.0.3
+=========================
+
+ * test: remove loopback-connector-oracle from tests (Ryan Graham)
+
+ * Fix bad CLA URL in CONTRIBUTING.md (Ryan Graham)
+
+
 2014-12-09, Version 1.0.2
 =========================
 
