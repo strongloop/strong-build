@@ -1,7 +1,7 @@
 {
   "name": "strong-build",
   "description": "prepare a node package for deployment",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "keywords": [
     "StrongLoop",
     "build",
@@ -28,8 +28,7 @@
     "test": "tap --timeout=300 ./test/test-*"
   },
   "bin": {
-    "sl-build": "./bin/slb",
-    "slb": "./bin/slb"
+    "sl-build": "./bin/sl-build.js"
   },
   "dependencies": {
     "debug": "^2.0.0",
