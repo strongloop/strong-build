@@ -22,5 +22,5 @@ Options:
 
 Git specific options:
   -c,--commit     Commit build output (branch specified by --onto).
-  --onto BRANCH   Branch to commit build results to, creating if
-                  necessary. ("deploy", by default).
+  --onto BRANCH   Branch to commit build results to, created if
+                  necessary ("deploy", by default).

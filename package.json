@@ -1,6 +1,6 @@
 {
   "name": "strong-build",
-  "description": "prepare a node package for deployment",
+  "description": "Prepare a node package for deployment",
   "version": "2.0.0",
   "keywords": [
     "StrongLoop",
