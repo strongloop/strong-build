@@ -10,32 +10,11 @@ var shell = require('shelljs');
 var vasync = require('vasync');
 
 function printHelp($0, prn) {
-  prn('usage: %s [options]', $0);
-  prn('');
-  prn('Build a node application package.');
-  prn('');
-  prn('With no options, the default depends on whether a git repository is');
-  prn('detected or not.');
-  prn('');
-  prn('If a git repository is detected, the default is to install and commit');
-  prn('the build results to the "deploy" branch, which will be created if it');
-  prn('does not already exist.');
-  prn('');
-  prn('If no git repository is detected, the default is to bundle, install,');
-  prn('and pack the build results into a <package-name>-<version>.tgz file.');
-  prn('');
-  prn('Options:');
-  prn('  -h,--help       Print this message and exit.');
-  prn('  -v,--version    Print version and exit.');
-  prn('  -i,--install    Install dependencies (without scripts, by default).');
-  prn('  --scripts       If installing, run scripts (to build addons).');
-  prn('  -b,--bundle     Modify package to bundle deployment dependencies.');
-  prn('  -p,--pack       Pack into a publishable archive (with dependencies).');
-  prn('');
-  prn('Git specific options:');
-  prn('  -c,--commit     Commit build output (branch specified by --onto).');
-  prn('  --onto BRANCH   Branch to commit build results to, creating if');
-  prn('                  necessary. ("deploy", by default).');
+  var USAGE = fs.readFileSync(require.resolve('./sl-build.txt'), 'utf-8')
+    .replace(/%MAIN%/g, $0)
+    .trim();
+
+  prn(USAGE);
 }
 
 function runCommand(cmd, callback) {
