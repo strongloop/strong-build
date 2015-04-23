@@ -64,6 +64,8 @@ exports.build = function build(argv, callback) {
   var parser = new Parser([
       ':v(version)',
       'h(help)',
+      'n(npm)',
+      'g(git)',
       's(scripts)',
       'i(install)',
       'b(bundle)',
@@ -89,6 +91,16 @@ exports.build = function build(argv, callback) {
       case 'h':
         printHelp($0, console.log);
         return callback();
+      case 'n':
+        install = true;
+        commit = false;
+        bundle = pack = true;
+        break;
+      case 'g':
+        install = true;
+        commit = true;
+        bundle = pack = false;
+        break;
       case 's':
         scripts = true;
         break;

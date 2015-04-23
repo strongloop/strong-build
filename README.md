@@ -172,23 +172,25 @@ the `--onto BRANCH` modifier to the commit command.
 ## Usage
 
 ```
-usage: sl-build.js [options]
+usage: sl-build [options]
 
 Build a node application package.
 
 With no options, the default depends on whether a git repository is
 detected or not.
 
-If a git repository is detected, the default is to install and commit
-the build results to the "deploy" branch, which will be created if it
-does not already exist.
+If a git repository is detected the default is `--git`: install and commit the
+build results to the "deploy" branch, which will be created if it does not
+already exist.
 
-If no git repository is detected, the default is to bundle, install,
-and pack the build results into a `<package-name>-<version>.tgz` file.
+If no git repository is detected the default is `--npm`: bundle, install, and
+pack the build results into a `<package-name>-<version>.tgz` file.
 
 Options:
   -h,--help       Print this message and exit.
   -v,--version    Print version and exit.
+  -n,--npm        Same as `--install --bundle --pack`.
+  -g,--git        Same as `--install --commit`.
   -i,--install    Install dependencies (without scripts, by default).
   --scripts       If installing, run scripts (to build addons).
   -b,--bundle     Modify package to bundle deployment dependencies.
