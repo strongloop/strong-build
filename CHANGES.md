@@ -1,4 +1,18 @@
-2015-01-13, Version 1.0.3
+2015-04-30, Version 2.0.0
+=========================
+
+ * Fix #23, rename of bin/slb to bin/sl-build (Sam Roberts)
+
+ * Add --npm and --git options (Sam Roberts)
+
+ * Update README for strong-pm.io (Sam Roberts)
+
+ * Factor usage message into sl-build.txt. (Sam Roberts)
+
+ * Rename sl-build for consistency (Sam Roberts)
+
+
+2015-01-12, Version 1.0.3
 =========================
 
  * test: remove loopback-connector-oracle from tests (Ryan Graham)
