@@ -1,3 +1,25 @@
+2015-05-13, Version 2.0.1
+=========================
+
+ * test: flush disk after building test app (Ryan Graham)
+
+ * test: improve debugability of test-script-only (Ryan Graham)
+
+ * fix callback exception catching (Ryan Graham)
+
+ * deps: upgrade tar (Ryan Graham)
+
+ * deps: upgrade shelljs (Ryan Graham)
+
+ * deps: upgrade lodash (Ryan Graham)
+
+ * deps: upgrade json-file-plus (Ryan Graham)
+
+ * deps: upgrade tap to 0.7 (Ryan Graham)
+
+ * deps: alphabetize deps (Ryan Graham)
+
+
 2015-04-30, Version 2.0.0
 =========================
 
