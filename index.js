@@ -180,11 +180,11 @@ exports.build = function build(argv, callback) {
   function doEnsureGitBranch(_, callback) {
     try {
       git.ensureBranch(onto);
-      return callback();
     } catch(er) {
       console.error('%s', er.message);
       return callback(er);
     }
+    return callback();
   }
 
   function doGitSyncBranch(_, callback) {
@@ -195,11 +195,11 @@ exports.build = function build(argv, callback) {
           info.srcBranch, info.dstBranch);
       else
         console.log('Not merging HEAD into `%s`, already up to date.', onto);
-      return callback();
     } catch(er) {
       console.error('%s', er.message);
       return callback(er);
     }
+    return callback();
   }
 
   function doNpmInstall(_, callback) {
@@ -305,10 +305,10 @@ exports.build = function build(argv, callback) {
         console.log('Committed build products onto `%s`', info.branch);
       else
         console.log('Build products already up to date on `%s`', onto);
-      return callback();
     } catch(er) {
       console.error('%s', er.message);
       return callback(er);
     }
+    return callback();
   }
 };

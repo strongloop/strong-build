@@ -32,15 +32,15 @@
   },
   "dependencies": {
     "debug": "^2.0.0",
-    "shelljs": "^0.3.0",
+    "json-file-plus": "^3.0.0",
+    "lodash": "^3.8.0",
     "posix-getopt": "^1.0.0",
-    "vasync": "^1.4.3",
-    "json-file-plus": "~1.0.0",
-    "lodash": "^2.4.1"
+    "shelljs": "^0.4.0",
+    "vasync": "^1.4.3"
   },
   "devDependencies": {
     "async": "^0.9.0",
-    "tap": "git://github.com/strongloop-forks/node-tap#production",
-    "tar": "^0.1.19"
+    "tap": "^0.7.1",
+    "tar": "^2.1.1"
   }
 }
