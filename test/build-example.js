@@ -52,7 +52,14 @@ module.exports = function buildExample(args, callback) {
 
   build.build(argv, function(er) {
     ok = true;
-    return callback(er)
+    if (process.env.CI && process.platform !== 'win32') {
+      debug('committing writes before continuing with test...');
+      exec('sync');
+      return setTimeout(function() {
+        callback(er);
+      }, 1000);
+    }
+    return callback(er);
   });
 
   debug('waiting for build...');
