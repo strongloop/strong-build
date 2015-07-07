@@ -1,3 +1,9 @@
+2015-07-07, Version 2.0.3
+=========================
+
+ * Construct packfile name from package (Sam Roberts)
+
+
 2015-05-21, Version 2.0.2
 =========================
 
