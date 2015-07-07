@@ -1,10 +1,11 @@
+var Parser = require('posix-getopt').BasicParser;
 var assert = require('assert');
 var debug = require('debug')('strong-build');
+var fmt = require('util').format;
 var fs = require('fs');
 var git = require('./lib/git');
 var json = require('json-file-plus');
 var lodash = require('lodash');
-var Parser = require('posix-getopt').BasicParser;
 var path = require('path');
 var shell = require('shelljs');
 var vasync = require('vasync');
@@ -286,8 +287,8 @@ exports.build = function build(argv, callback) {
     runWait('npm --quiet pack', function(er, output) {
       if (er) return callback(er);
 
-      // npm pack output is a single line with the pack file name
-      var src = output.split('\n')[0];
+      var pkg = JSON.parse(fs.readFileSync('package.json'));
+      var src = fmt('%s-%s.tgz', pkg.name, pkg.version);
       var dst = path.join('..', src);
 
       console.log('Running `mv -f %s %s`', src, dst);
