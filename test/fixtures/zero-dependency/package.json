@@ -1,0 +1,6 @@
+{
+  "name": "zero-dependency",
+  "version": "1.0.0",
+  "description": "package with no dependecies and no node_modules for test",
+  "main": "index.js"
+}

@@ -1,4 +1,4 @@
-require('./build-example')(['--install', '-p'], function(er) {
+require('./build-example')('suite', ['--install', '-p'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);
   assert(test('-d', 'node_modules'));

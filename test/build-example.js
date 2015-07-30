@@ -1,4 +1,6 @@
-module.exports = function buildExample(args, callback) {
+var fmt = require('util').format;
+
+module.exports = function buildExample(fixture, args, callback) {
   assert = require('assert');
   debug = require('debug')('strong-build:test');
   fs = require('fs');
@@ -41,7 +43,7 @@ module.exports = function buildExample(args, callback) {
   });
 
   rm('-rf', '_suite');
-  cp('-Rf', 'fixtures/suite/*', '_suite');
+  cp('-Rf', fmt('fixtures/%s/*', fixture), '_suite');
   cd('_suite');
   assert(test('-f', 'package.json'));
   assert(!test('-d', 'node_modules'));
