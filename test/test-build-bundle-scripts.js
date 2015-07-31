@@ -1,7 +1,7 @@
 var lodash = require('lodash');
 var build = require('./build-example');
 
-build(['--install', '--pack', '--bundle', '--scripts'], function(er) {
+build('suite', ['--install', '--pack', '--bundle', '--scripts'], function(er) {
   assert.ifError(er);
   var info = fs.readJsonSync('package.json');
   var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));

@@ -1,6 +1,6 @@
 var shell = require('shelljs');
 
-require('./build-example')(['--scripts'], function(er) {
+require('./build-example')('suite', ['--scripts'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);
   assert(test('-d', 'node_modules'));

@@ -1,4 +1,4 @@
-require('./build-example')(['-i'], function(er) {
+require('./build-example')('suite', ['-i'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);
   assert(test('-d', 'node_modules'));
