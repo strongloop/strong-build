@@ -279,7 +279,7 @@ exports.build = function build(argv, callback) {
   }
 
   function doNpmPack(_, callback) {
-    var nodeModules = test('-d', 'node_modules') ? ['node_modules'] : [];
+    var nodeModules = shell.test('-d', 'node_modules') ? ['node_modules'] : [];
     var ignoreFiles = shell.find(nodeModules).filter(function(file) {
       return file.match(/\.(git|npm)ignore$/);
     });
