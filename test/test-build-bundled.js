@@ -1,5 +1,13 @@
+var assert = require('assert');
+var build = require('./build-example');
+var debug = require('debug')('strong-build:test');
+var fs = require('fs');
 var lodash = require('lodash');
-require('./build-example')('suite', ['--install', '-p', '--bundle'], function(er) {
+var path = require('path');
+var tar = require('tar');
+var util = require('util');
+
+build('suite', ['--install', '-p', '--bundle'], function(er) {
   assert.ifError(er);
   var info = fs.readJsonSync('package.json');
   var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));

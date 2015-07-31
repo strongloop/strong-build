@@ -1,11 +1,7 @@
 var assert = require('assert');
 var async = require('async');
-var debug = require('debug')('strong-build:test');
-var path = require('path');
-
-require('shelljs/global');
-
 var build = require('../').build;
+var debug = require('debug')('strong-build:test');
 
 // Check for node silently exiting with code 0 when tests have not passed.
 var ok = false;
@@ -17,7 +13,7 @@ process.on('exit', function(code) {
 });
 
 function expectError(er) {
-  if(er) {
+  if (er) {
     return null;
   } else {
     return Error('expected error');

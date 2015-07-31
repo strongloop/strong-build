@@ -1,5 +1,10 @@
-var lodash = require('lodash');
+var assert = require('assert');
 var build = require('./build-example');
+var debug = require('debug')('strong-build:test');
+var fs = require('fs');
+var path = require('path');
+var tar = require('tar');
+var util = require('util');
 
 build('suite', ['--install', '--pack', '--bundle', '--scripts'], function(er) {
   assert.ifError(er);

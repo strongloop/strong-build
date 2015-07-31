@@ -1,3 +1,10 @@
+var assert = require('assert');
+var debug = require('debug')('strong-build:test');
+var path = require('path');
+var tar = require('tar');
+var test = require('shelljs').test;
+var util = require('util');
+
 require('./build-example')('suite', ['--install', '-p'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);

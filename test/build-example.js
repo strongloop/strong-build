@@ -1,14 +1,12 @@
+var assert = require('assert');
+var debug = require('debug')('strong-build:test');
 var fmt = require('util').format;
+var fs = require('fs');
+var sh = require('shelljs');
+var tar = require('tar');
+var zlib = require('zlib');
 
 module.exports = function buildExample(fixture, args, callback) {
-  assert = require('assert');
-  debug = require('debug')('strong-build:test');
-  fs = require('fs');
-  path = require('path');
-  tar = require('tar');
-  util = require('util');
-  zlib = require('zlib');
-
   tar.list = function list(tarfile, callback) {
     var paths = [];
 
@@ -29,8 +27,6 @@ module.exports = function buildExample(fixture, args, callback) {
     return JSON.parse(fs.readFileSync(file));
   };
 
-  require('shelljs/global');
-
   var build = require('../');
 
   // Check for node silently exiting with code 0 when tests have not passed.
@@ -42,11 +38,11 @@ module.exports = function buildExample(fixture, args, callback) {
     }
   });
 
-  rm('-rf', '_suite');
-  cp('-Rf', fmt('fixtures/%s/*', fixture), '_suite');
-  cd('_suite');
-  assert(test('-f', 'package.json'));
-  assert(!test('-d', 'node_modules'));
+  sh.rm('-rf', '_suite');
+  sh.cp('-Rf', fmt('fixtures/%s/*', fixture), '_suite');
+  sh.cd('_suite');
+  assert(sh.test('-f', 'package.json'));
+  assert(!sh.test('-d', 'node_modules'));
 
   var argv = ['node', 'slb'].concat(args);
 
@@ -56,7 +52,7 @@ module.exports = function buildExample(fixture, args, callback) {
     ok = true;
     if (process.env.CI && process.platform !== 'win32') {
       debug('committing writes before continuing with test...');
-      exec('sync');
+      sh.exec('sync');
       return setTimeout(function() {
         callback(er);
       }, 1000);
