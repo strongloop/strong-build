@@ -1,13 +1,16 @@
-var shell = require('shelljs');
+var assert = require('assert');
+var debug = require('debug')('strong-build:test');
+var path = require('path');
+var sh = require('shelljs');
 
 require('./build-example')('suite', ['--scripts'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);
-  assert(test('-d', 'node_modules'));
+  assert(sh.test('-d', 'node_modules'));
   var info = require(path.resolve('package.json'));
   assert.equal(info.name, 'loopback-example-app');
 
-  var gitLsOutput = shell.exec('git ls-tree -r --long deploy').output;
+  var gitLsOutput = sh.exec('git ls-tree -r --long deploy').output;
   var paths = gitLsOutput.split('\n');
   var bundled = paths.filter(function(path) {
     return path.match(/node_modules/);

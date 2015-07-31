@@ -1,5 +1,4 @@
 var Parser = require('posix-getopt').BasicParser;
-var assert = require('assert');
 var debug = require('debug')('strong-build');
 var fmt = require('util').format;
 var fs = require('fs');
@@ -41,7 +40,7 @@ function runWait(cmd, callback) {
   });
 }
 
-function runStep(cmd, callback) {
+function runStep(cmd) {
   return function(_, callback) {
     runWait(cmd, function(er) {
       return callback(er); // do not return output of runWait()
@@ -52,7 +51,7 @@ function runStep(cmd, callback) {
 function reportRunError(er, output) {
   if (!er) return;
 
-  console.error("Failed to run `%s`:", er.message);
+  console.error('Failed to run `%s`:', er.message);
   if (output && output !== '') {
     process.stderr.write(output);
   }
@@ -191,11 +190,12 @@ exports.build = function build(argv, callback) {
   function doGitSyncBranch(_, callback) {
     try {
       var info = git.syncBranch(onto);
-      if (info.srcBranch && info.dstBranch)
+      if (info.srcBranch && info.dstBranch) {
         console.log('Merged source tree of `%s` onto `%s`',
           info.srcBranch, info.dstBranch);
-      else
+      } else {
         console.log('Not merging HEAD into `%s`, already up to date.', onto);
+      }
     } catch(er) {
       console.error('%s', er.message);
       return callback(er);
@@ -209,12 +209,12 @@ exports.build = function build(argv, callback) {
     if (!scripts) {
       install += ' --ignore-scripts';
     }
-    var steps = [ runStep(install) ];
+    var steps = [runStep(install)];
     if (pkg.scripts && pkg.scripts.build) {
       steps.push(runStep('npm run build'));
     }
     steps.push(runStep('npm prune --production'));
-    vasync.pipeline({ funcs: steps }, function(er) {
+    vasync.pipeline({funcs: steps}, function(er) {
       return callback(er);
     });
   }
@@ -285,7 +285,7 @@ exports.build = function build(argv, callback) {
     });
     shell.rm('-f', ignoreFiles);
 
-    runWait('npm --quiet pack', function(er, output) {
+    runWait('npm --quiet pack', function(er) {
       if (er) return callback(er);
 
       var pkg = JSON.parse(fs.readFileSync('package.json'));
@@ -303,10 +303,11 @@ exports.build = function build(argv, callback) {
   function doGitCommit(_, callback) {
     try {
       var info = git.commitAll(onto);
-      if (info.branch)
+      if (info.branch) {
         console.log('Committed build products onto `%s`', info.branch);
-      else
+      } else {
         console.log('Build products already up to date on `%s`', onto);
+      }
     } catch(er) {
       console.error('%s', er.message);
       return callback(er);

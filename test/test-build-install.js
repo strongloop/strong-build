@@ -1,9 +1,13 @@
+var assert = require('assert');
+var debug = require('debug')('strong-build:test');
+var sh = require('shelljs');
+
 require('./build-example')('suite', ['-i'], function(er) {
   debug('built with error?', er);
   assert.ifError(er);
-  assert(test('-d', 'node_modules'));
+  assert(sh.test('-d', 'node_modules'));
 
-  var addons = find('node_modules').filter(function(path) {
+  var addons = sh.find('node_modules').filter(function(path) {
     // .../mongodb/node_modules/bson/ contains compiled addons. Others could in
     // the future, but for now, this works to assert addons weren't compiled
     // during the `npm install`
