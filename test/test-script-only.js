@@ -10,7 +10,7 @@ require('./build-example')('suite', ['--scripts'], function(er) {
   var info = require(path.resolve('package.json'));
   assert.equal(info.name, 'loopback-example-app');
 
-  var gitLsOutput = sh.exec('git ls-tree -r --long deploy').output;
+  var gitLsOutput = sh.exec('git ls-tree -r --long deploy', {silent: 1}).output;
   var paths = gitLsOutput.split('\n');
   var bundled = paths.filter(function(path) {
     return path.match(/node_modules/);
