@@ -1,3 +1,21 @@
+2015-08-06, Version 2.0.4
+=========================
+
+ * usage: clarify relationship between pack/bundle (Sam Roberts)
+
+ * test: shelljs exec silent is required under io.js (Sam Roberts)
+
+ * lintpocalypse (Ryan Graham)
+
+ * package: add eslint and rules (Ryan Graham)
+
+ * fix undefined test() error (Ryan Graham)
+
+ * test: regression test for zero dependency apps (Ryan Graham)
+
+ * build: detect/handle apps with no dependencies (Ryan Graham)
+
+
 2015-07-07, Version 2.0.3
 =========================
 
