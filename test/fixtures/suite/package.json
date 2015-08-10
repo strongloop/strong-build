@@ -18,7 +18,7 @@
     "weighted": "~0.2.2",
     "shuffle": "~0.2.1",
     "text-table": "~0.2.0",
-    "strong-fork-syslog": "^1.2.1"
+    "iconv": "^2.1.10"
   },
   "optionalDependencies": {
     "loopback-connector-mongodb": "~1.4.1",

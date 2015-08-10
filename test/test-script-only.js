@@ -19,10 +19,10 @@ require('./build-example')('suite', ['--scripts'], function(er) {
 
   assert(bundled.length > 0, 'dependencies should be bundled');
 
-  var syslogBuildPaths = paths.filter(function(file) {
-    return file.match(/strong-fork-syslog\/build/);
+  var iconvBuildPaths = paths.filter(function(file) {
+    return file.match(/iconv\/build/);
   });
 
-  debug('git branch contains syslog build dirs:', syslogBuildPaths);
-  assert(syslogBuildPaths.length > 0, 'build scripts should be present');
+  debug('git branch contains iconv build dirs:', iconvBuildPaths);
+  assert(iconvBuildPaths.length > 0, 'build scripts should be present');
 });

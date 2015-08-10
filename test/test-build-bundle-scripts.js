@@ -11,14 +11,14 @@ build('suite', ['--install', '--pack', '--bundle', '--scripts'], function(er) {
   var info = fs.readJsonSync('package.json');
   var tgz = path.join('..', util.format('%s-%s.tgz', info.name, info.version));
 
-  // strong-fork-syslog build directory should be present
+  // iconv build directory should be present
 
   tar.list(tgz, function(er, paths) {
-    var syslogBuildPaths = paths.filter(function(file) {
-      return file.match(/strong-fork-syslog\/build/);
+    var iconvBuildPaths = paths.filter(function(file) {
+      return file.match(/iconv\/build/);
     });
 
-    debug('tarfile %s contains syslog build dirs:', tgz, syslogBuildPaths);
-    assert(syslogBuildPaths.length > 0);
+    debug('tarfile %s contains iconv build dirs:', tgz, iconvBuildPaths);
+    assert(iconvBuildPaths.length > 0);
   });
 });
