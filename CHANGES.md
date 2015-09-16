@@ -1,3 +1,9 @@
+2015-09-16, Version 2.0.5
+=========================
+
+ * switch to iconv for binary tests (Ryan Graham)
+
+
 2015-08-06, Version 2.0.4
 =========================
 
