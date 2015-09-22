@@ -18,7 +18,7 @@ Options:
   -n,--npm        Same as `--install --bundle --pack`.
   -g,--git        Same as `--install --commit`.
   -i,--install    Install dependencies (without scripts, by default).
-  --scripts       If installing, run scripts (to build addons).
+  -s,--scripts    If installing, run scripts (to build addons).
   -b,--bundle     Modify package to include dependencies when packing.
   -p,--pack       Pack into a publishable archive.
 
