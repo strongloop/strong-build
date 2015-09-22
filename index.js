@@ -180,7 +180,7 @@ exports.build = function build(argv, callback) {
   function doEnsureGitBranch(_, callback) {
     try {
       git.ensureBranch(onto);
-    } catch(er) {
+    } catch (er) {
       console.error('%s', er.message);
       return callback(er);
     }
@@ -196,7 +196,7 @@ exports.build = function build(argv, callback) {
       } else {
         console.log('Not merging HEAD into `%s`, already up to date.', onto);
       }
-    } catch(er) {
+    } catch (er) {
       console.error('%s', er.message);
       return callback(er);
     }
@@ -308,7 +308,7 @@ exports.build = function build(argv, callback) {
       } else {
         console.log('Build products already up to date on `%s`', onto);
       }
-    } catch(er) {
+    } catch (er) {
       console.error('%s', er.message);
       return callback(er);
     }
