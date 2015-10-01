@@ -1,3 +1,13 @@
+2015-10-01, Version 2.0.6
+=========================
+
+ * usage: document -s alias for --scripts (Ryan Graham)
+
+ * lint: add spaces after keywords (Ryan Graham)
+
+ * Use strongloop conventions for licensing (Sam Roberts)
+
+
 2015-09-16, Version 2.0.5
 =========================
 
