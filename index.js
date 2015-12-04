@@ -3,11 +3,12 @@ var debug = require('debug')('strong-build');
 var fmt = require('util').format;
 var fs = require('fs');
 var git = require('./lib/git');
-var json = require('json-file-plus');
-var lodash = require('lodash');
 var path = require('path');
+var pump = require('pump');
 var shell = require('shelljs');
+var strongPack = require('strong-pack');
 var vasync = require('vasync');
+var zlib = require('zlib');
 
 function printHelp($0, prn) {
   var USAGE = fs.readFileSync(require.resolve('./sl-build.txt'), 'utf-8')
@@ -79,7 +80,6 @@ exports.build = function build(argv, callback) {
   var onto = 'deploy';
   var install;
   var scripts;
-  var bundle;
   var pack;
   var commit;
 
@@ -94,12 +94,12 @@ exports.build = function build(argv, callback) {
       case 'n':
         install = true;
         commit = false;
-        bundle = pack = true;
+        pack = true;
         break;
       case 'g':
         install = true;
         commit = true;
-        bundle = pack = false;
+        pack = false;
         break;
       case 's':
         scripts = true;
@@ -108,7 +108,8 @@ exports.build = function build(argv, callback) {
         install = true;
         break;
       case 'b':
-        bundle = true;
+        console.error('Warning: the --bundle option now does nothing and ' +
+                      'should not be used');
         break;
       case 'p':
         pack = true;
@@ -136,14 +137,14 @@ exports.build = function build(argv, callback) {
 
   // With no actions selected, do everything we can (onto requires an argument,
   // so we can't do it automatically).
-  if (!(install || pack || commit || bundle)) {
+  if (!(install || pack || commit)) {
     install = true;
     if (git.isGit()) {
       commit = true;
-      bundle = pack = false;
+      pack = false;
     } else {
       commit = false;
-      bundle = pack = true;
+      pack = true;
     }
   }
 
@@ -161,10 +162,6 @@ exports.build = function build(argv, callback) {
 
   if (install) {
     steps.push(doNpmInstall);
-  }
-
-  if (bundle) {
-    steps.push(doBundle);
   }
 
   if (pack) {
@@ -219,85 +216,15 @@ exports.build = function build(argv, callback) {
     });
   }
 
-  function doBundle(_, callback) {
-    // Build output won't get packed if it is .npmignored (a configuration
-    // error, don't .npmignore your build output) or if there is no .npmignore,
-    // if it is .gitignored (as they should be). So, create an empty .npmignore
-    // if there is a .gitignore but not a .npmignore so build products are
-    // packed.
-    if (fs.existsSync('.gitignore') && !fs.existsSync('.npmignore')) {
-      console.log('Running `touch .npmignore`');
-      console.warn('Check the auto-generated .npmignore is correct!');
-      fs.close(fs.openSync('.npmignore', 'a'));
-    }
-
-    // node_modules is unconditionally ignored by npm pack, the only way to get
-    // the dependencies packed is to name them in the package.json's
-    // bundledDepenencies.
-    var info = require(path.resolve('package.json'));
-
-    if (info.bundleDependencies || info.bundledDependencies) {
-      // Use package specified dependency bundling
-      return callback();
-    }
-
-    // Bundle non-dev dependencies. Optional deps may fail to build at deploy
-    // time, that's OK, but must be present during packing.  If the user has
-    // more specific desires, they can configure the dependencies themselves, or
-    // just not run the --bundle action.
-    var bundled = lodash.union(
-      Object.keys(info.dependencies || {}),
-      Object.keys(info.optionalDependencies || {})
-    ).sort();
-
-    debug('saving bundled: %j', bundled);
-
-    if (bundled.length < 1) {
-      return callback();
-    }
-
-    console.log('Setting package.json "bundleDependencies" to: [\n  %s\n]',
-      bundled.join(',\n  '));
-
-    // Re-write package.json, preserving its format if possible.
-    json('package.json', function(er, p) {
-      if (er) {
-        console.error('Error reading package.json: %s', er.message);
-        return callback(er);
-      }
-
-      p.data.bundleDependencies = bundled;
-
-      p.save(function(er) {
-        if (er) {
-          console.error('Error writing package.json: %s', er.message);
-          return callback(er);
-        }
-        return callback();
-      });
-    });
-  }
-
   function doNpmPack(_, callback) {
-    var nodeModules = shell.test('-d', 'node_modules') ? ['node_modules'] : [];
-    var ignoreFiles = shell.find(nodeModules).filter(function(file) {
-      return file.match(/\.(git|npm)ignore$/);
-    });
-    shell.rm('-f', ignoreFiles);
-
-    runWait('npm --quiet pack', function(er) {
-      if (er) return callback(er);
-
-      var pkg = JSON.parse(fs.readFileSync('package.json'));
-      var src = fmt('%s-%s.tgz', pkg.name, pkg.version);
-      var dst = path.join('..', src);
-
-      console.log('Running `mv -f %s %s`', src, dst);
-
-      shell.mv('-f', src, dst);
-
-      return callback();
-    });
+    var pkg = JSON.parse(fs.readFileSync('package.json'));
+    var tgzName = fmt('%s-%s.tgz', pkg.name, pkg.version);
+    var dst = path.join('..', tgzName);
+    var tarStream = strongPack(process.cwd());
+    var dstFile = fs.createWriteStream(dst, 'binary');
+    var gz = zlib.createGzip();
+    console.log('Packing application in to %s', dst);
+    pump(tarStream, gz, dstFile, callback);
   }
 
   function doGitCommit(_, callback) {

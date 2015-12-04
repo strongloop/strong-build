@@ -20,6 +20,6 @@ require('./build-example')('suite', ['--install', '-p'], function(er) {
     });
     debug('tarfile %s bundles:', tgz, bundled);
 
-    assert.equal(bundled.length, 0, 'bundling not requested');
+    assert.notEqual(bundled.length, 0, 'bundling not requested');
   });
 });
