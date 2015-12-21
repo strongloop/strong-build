@@ -1,3 +1,11 @@
+2015-12-21, Version 2.1.0
+=========================
+
+ * remove support for --bundle flag (Ryan Graham)
+
+ * Refer to licenses with a link (Sam Roberts)
+
+
 2015-10-01, Version 2.0.6
 =========================
 
