@@ -1,0 +1,17 @@
+{
+    "030d811d2ab5819e6243c729824da0b6": "Executando ` {0} `",
+    "1c481aa99d081c32182011a758f73d33": "{0}",
+    "5c54f212be40a039151f4dcb56396070": "Aviso: o -- opção agora não configurável nada e não devem ser usados",
+    "64ba4d2a8837254d4f1a2ae704e17101": "Uso inválido (de opção '{0}'), tente ` {1} -- help \".",
+    "69d65816d21750f56bef9b77e5870b02": "Impossível executar confirmação no diretório de trabalho não vá",
+    "77d8095a8be6712bb04f5259ecfe0fa1": "Não mesclar HEAD para ` {0} `, já até a data.",
+    "7d4844ab8096cfe8d67eee3e85df60fb": "Uso inválido (de argumentos extras), tente ` {0} -- help \".",
+    "90d507cae0601242deeeea9b942544cb": "árvore de origem mesclada de ` {0} ` para ` {1} `",
+    "9366282e11c151558bdfaab4a264aa1b": "Uso",
+    "99587c601164537b7250fe9cf50fac93": "Erro no ` {0} `:\n  {1}",
+    "a8c20f23a35195c295680377789d40b4": "Os produtos de construção já atualizado sobre ` {0} `",
+    "af6d9e7420995e5c0abb08a42724d606": "Erro no ` {0} `:",
+    "b25fa34ebd543c4e0c0669f94de5ddb8": "Falha ao executar ` {0} `:",
+    "ca6d677489e241e5af729aa7162389d1": "Empacotando aplicativo em {0}",
+    "d3ff137cf1ef8d22f3952261f2275780": "Os produtos de construção Confirmada para ` {0} `"
+}

@@ -6,12 +6,13 @@ var git = require('./lib/git');
 var path = require('path');
 var pump = require('pump');
 var shell = require('shelljs');
+var g = require('strong-globalize');
 var strongPack = require('strong-pack');
 var vasync = require('vasync');
 var zlib = require('zlib');
 
 function printHelp($0, prn) {
-  var USAGE = fs.readFileSync(require.resolve('./sl-build.txt'), 'utf-8')
+  var USAGE = g.t('sl-build.txt')
     .replace(/%MAIN%/g, $0)
     .trim();
 
@@ -30,10 +31,10 @@ function runCommand(cmd, callback) {
 }
 
 function runWait(cmd, callback) {
-  console.log('Running `%s`', cmd);
+  g.log('Running `%s`', cmd);
   runCommand(cmd, function(er, output) {
     if (er) {
-      console.error('Error on `%s`:', cmd);
+      g.error('Error on `%s`:', cmd);
       reportRunError(er, output);
       return callback(er);
     }
@@ -52,7 +53,7 @@ function runStep(cmd) {
 function reportRunError(er, output) {
   if (!er) return;
 
-  console.error('Failed to run `%s`:', er.message);
+  g.error('Failed to run `%s`:', er.message);
   if (output && output !== '') {
     process.stderr.write(output);
   }
@@ -83,6 +84,8 @@ exports.build = function build(argv, callback) {
   var pack;
   var commit;
 
+  g.setRootDir(path.resolve(__dirname));
+
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
       case 'v':
@@ -108,7 +111,7 @@ exports.build = function build(argv, callback) {
         install = true;
         break;
       case 'b':
-        console.error('Warning: the --bundle option now does nothing and ' +
+        g.error('Warning: the --bundle option now does nothing and ' +
                       'should not be used');
         break;
       case 'p':
@@ -124,15 +127,15 @@ exports.build = function build(argv, callback) {
         commit = false;
         break;
       default:
-        console.error('Invalid usage (near option \'%s\'), try `%s --help`.',
+        g.error('Invalid usage (near option \'%s\'), try `%s --help`.',
           option.optopt, $0);
-        return callback(Error('usage'));
+        return callback(g.Error('usage'));
     }
   }
 
   if (parser.optind() !== argv.length) {
-    console.error('Invalid usage (extra arguments), try `%s --help`.', $0);
-    return callback(Error('usage'));
+    g.error('Invalid usage (extra arguments), try `%s --help`.', $0);
+    return callback(g.Error('usage'));
   }
 
   // With no actions selected, do everything we can (onto requires an argument,
@@ -149,8 +152,8 @@ exports.build = function build(argv, callback) {
   }
 
   if (commit && !git.isGit()) {
-    console.error('Cannot perform commit on non-git working directory');
-    return callback(Error('usage'));
+    g.error('Cannot perform commit on non-git working directory');
+    return callback(g.Error('usage'));
   }
 
   var steps = [];
@@ -178,7 +181,7 @@ exports.build = function build(argv, callback) {
     try {
       git.ensureBranch(onto);
     } catch (er) {
-      console.error('%s', er.message);
+      g.error('%s', er.message);
       return callback(er);
     }
     return callback();
@@ -188,13 +191,13 @@ exports.build = function build(argv, callback) {
     try {
       var info = git.syncBranch(onto);
       if (info.srcBranch && info.dstBranch) {
-        console.log('Merged source tree of `%s` onto `%s`',
+        g.log('Merged source tree of `%s` onto `%s`',
           info.srcBranch, info.dstBranch);
       } else {
-        console.log('Not merging HEAD into `%s`, already up to date.', onto);
+        g.log('Not merging HEAD into `%s`, already up to date.', onto);
       }
     } catch (er) {
-      console.error('%s', er.message);
+      g.error('%s', er.message);
       return callback(er);
     }
     return callback();
@@ -223,7 +226,7 @@ exports.build = function build(argv, callback) {
     var tarStream = strongPack(process.cwd());
     var dstFile = fs.createWriteStream(dst, 'binary');
     var gz = zlib.createGzip();
-    console.log('Packing application in to %s', dst);
+    g.log('Packing application in to %s', dst);
     pump(tarStream, gz, dstFile, callback);
   }
 
@@ -231,9 +234,9 @@ exports.build = function build(argv, callback) {
     try {
       var info = git.commitAll(onto);
       if (info.branch) {
-        console.log('Committed build products onto `%s`', info.branch);
+        g.log('Committed build products onto `%s`', info.branch);
       } else {
-        console.log('Build products already up to date on `%s`', onto);
+        g.log('Build products already up to date on `%s`', onto);
       }
     } catch (er) {
       console.error('%s', er.message);

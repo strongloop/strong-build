@@ -1,0 +1,17 @@
+{
+    "030d811d2ab5819e6243c729824da0b6": "`{0} laufen lassen",
+    "1c481aa99d081c32182011a758f73d33": "{0}",
+    "5c54f212be40a039151f4dcb56396070": "Warnung: Der -- Bündeloption jetzt tut nichts und sollte nicht verwendet werden",
+    "64ba4d2a8837254d4f1a2ae704e17101": "Ungültiger Gebrauch (nahe Option '{0}'), Versuchs `{1} -- Hilfe.",
+    "69d65816d21750f56bef9b77e5870b02": "Kann nicht arbeiten begehen Sie auf non-git aktives Verzeichnis",
+    "77d8095a8be6712bb04f5259ecfe0fa1": "Keinen Kopf in `{0}, `schon aktuell, einfließen lassen.",
+    "7d4844ab8096cfe8d67eee3e85df60fb": "Ungültiger Gebrauch (zusätzliche Argumente), Versuchs `{0} -- Hilfe.",
+    "90d507cae0601242deeeea9b942544cb": "Vereinter Quellbaum `von {0} `auf `{1}",
+    "9366282e11c151558bdfaab4a264aa1b": "Gebrauch",
+    "99587c601164537b7250fe9cf50fac93": "Fehler auf `{0}:  {1}",
+    "a8c20f23a35195c295680377789d40b4": "Bauen Sie Produkte auf `{0} schon aktuell",
+    "af6d9e7420995e5c0abb08a42724d606": "Fehler auf `{0}:",
+    "b25fa34ebd543c4e0c0669f94de5ddb8": "`{0} Nicht laufen gelassen:",
+    "ca6d677489e241e5af729aa7162389d1": "Bewerbung in bei {0} packen",
+    "d3ff137cf1ef8d22f3952261f2275780": "Entschlossene Körperbauprodukte auf `{0}"
+}

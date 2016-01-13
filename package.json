@@ -34,6 +34,7 @@
     "posix-getopt": "^1.0.0",
     "pump": "^1.0.1",
     "shelljs": "^0.4.0",
+    "strong-globalize": "^1.0.0",
     "strong-pack": "^1.0.0",
     "vasync": "^1.4.3"
   },

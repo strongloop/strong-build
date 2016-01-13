@@ -1,0 +1,17 @@
+{
+    "030d811d2ab5819e6243c729824da0b6": "Ejecución de ` {0} `",
+    "1c481aa99d081c32182011a758f73d33": "{0}",
+    "5c54f212be40a039151f4dcb56396070": "Aviso: -- opción de paquete no ahora y no debería utilizarse",
+    "64ba4d2a8837254d4f1a2ae704e17101": "Uso no válido (cerca de la opción '{0}'), intente ` {1} -- ayuda \".",
+    "69d65816d21750f56bef9b77e5870b02": "No realizar confirmación en directorio de trabajo no git",
+    "77d8095a8be6712bb04f5259ecfe0fa1": "No fusionar HEAD en ` {0} `, ya hasta la fecha.",
+    "7d4844ab8096cfe8d67eee3e85df60fb": "Uso no válido de argumentos extra), intente ` {0} -- ayuda \".",
+    "90d507cae0601242deeeea9b942544cb": "árbol de origen fusionado de ` {0} ` a ` {1} `",
+    "9366282e11c151558bdfaab4a264aa1b": "Uso",
+    "99587c601164537b7250fe9cf50fac93": "Error en ` {0} `:\n  {1}",
+    "a8c20f23a35195c295680377789d40b4": "Construir productos ya hasta la fecha sobre ` {0} `",
+    "af6d9e7420995e5c0abb08a42724d606": "Error en ` {0} `:",
+    "b25fa34ebd543c4e0c0669f94de5ddb8": "No se ha podido ejecutar ` {0} `:",
+    "ca6d677489e241e5af729aa7162389d1": "Con la aplicación en {0}",
+    "d3ff137cf1ef8d22f3952261f2275780": "Los productos de construcción cometidas en ` {0} `"
+}
