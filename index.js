@@ -2,11 +2,11 @@ var Parser = require('posix-getopt').BasicParser;
 var debug = require('debug')('strong-build');
 var fmt = require('util').format;
 var fs = require('fs');
+var g = require('strong-globalize');
 var git = require('./lib/git');
 var path = require('path');
 var pump = require('pump');
 var shell = require('shelljs');
-var g = require('strong-globalize');
 var strongPack = require('strong-pack');
 var vasync = require('vasync');
 var zlib = require('zlib');
@@ -84,7 +84,7 @@ exports.build = function build(argv, callback) {
   var pack;
   var commit;
 
-  g.setRootDir(path.resolve(__dirname));
+  g.setRootDir(__dirname);
 
   while ((option = parser.getopt()) !== undefined) {
     switch (option.option) {
@@ -127,14 +127,14 @@ exports.build = function build(argv, callback) {
         commit = false;
         break;
       default:
-        g.error('Invalid usage (near option \'%s\'), try `%s --help`.',
+        g.error('Invalid usage (near option \'%s\'), try `{{%s --help}}`.',
           option.optopt, $0);
         return callback(g.Error('usage'));
     }
   }
 
   if (parser.optind() !== argv.length) {
-    g.error('Invalid usage (extra arguments), try `%s --help`.', $0);
+    g.error('Invalid usage (extra arguments), try `{{%s --help}}`.', $0);
     return callback(g.Error('usage'));
   }
 
@@ -152,7 +152,7 @@ exports.build = function build(argv, callback) {
   }
 
   if (commit && !git.isGit()) {
-    g.error('Cannot perform commit on non-git working directory');
+    g.error('Cannot perform commit on {{non-git}} working directory');
     return callback(g.Error('usage'));
   }
 
@@ -194,7 +194,7 @@ exports.build = function build(argv, callback) {
         g.log('Merged source tree of `%s` onto `%s`',
           info.srcBranch, info.dstBranch);
       } else {
-        g.log('Not merging HEAD into `%s`, already up to date.', onto);
+        g.log('Not merging {{HEAD}} into `%s`, already up to date.', onto);
       }
     } catch (er) {
       g.error('%s', er.message);
