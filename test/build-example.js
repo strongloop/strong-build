@@ -38,6 +38,7 @@ module.exports = function buildExample(fixture, args, callback) {
     }
   });
 
+  sh.cd(__dirname);
   sh.rm('-rf', '_suite');
   sh.cp('-Rf', fmt('fixtures/%s/*', fixture), '_suite');
   sh.cd('_suite');

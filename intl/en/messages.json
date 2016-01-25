@@ -13,5 +13,13 @@
     "ca6d677489e241e5af729aa7162389d1": "Packing application in to {0}",
     "d3ff137cf1ef8d22f3952261f2275780": "Committed build products onto `{0}`",
     "a8c20f23a35195c295680377789d40b4": "Build products already up to date on `{0}`",
-    "99587c601164537b7250fe9cf50fac93": "Error on `{0}`:\n  {1}"
+    "99587c601164537b7250fe9cf50fac93": "Error on `{0}`:\n  {1}",
+    "1799e4e01c2fb3a088b19cfeb01eb2e1": "Failed to create branch \"{0}\"",
+    "7806fbe11cf7c1e9aad101f86bd20464": "Failed to parse branch `HEAD`, is this a git repository?",
+    "b8e0d3bbf3ba083e84b9e13231b40bc6": "Failed to commit `{0}` onto `{1}`",
+    "e8b2fb5beafaba433e270e4b31536907": "Failed to merge `{0}` onto `{1}`",
+    "0ad1a7faf2d75966b82d53fa818be4e6": "Failed to add build products",
+    "48b64f73122685bbbadefbc32ebfa2b3": "Failed to stage build products for commit",
+    "be16430c695022e715484af2ce2a667e": "Failed to create build products commit for `{0}`",
+    "03a3f207674407bfc212889a4aac83c8": "Failed to commit build products to `{0}`"
 }
