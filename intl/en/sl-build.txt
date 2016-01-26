@@ -2,15 +2,11 @@ usage: {{%MAIN%}} [options]
 
 Build a node application package.
 
-With no options, the default depends on whether a git repository is
-detected or not.
+With no options, the default depends on whether a git repository is detected or not.
 
-If a {{git}} repository is detected the default is `{{--git}}`: install and commit the
-build results to the "{{deploy}}" branch, which will be created if it does not
-already exist.
+If a {{git}} repository is detected the default is `{{--git}}`: install and commit the build results to the "{{deploy}}" branch, which will be created if it does not already exist.
 
-If no {{git}} repository is detected the default is `{{--npm}}`: install and
-pack the build results into a `{{<package-name>-<version>.tgz}}` file.
+If no {{git}} repository is detected the default is `{{--npm}}`: install and pack the build results into a `{{<package-name>-<version>.tgz}}` file.
 
 Options:
   {{-h,--help}}       Print this message and exit.
@@ -23,5 +19,4 @@ Options:
 
 Git specific options:
   {{-c,--commit}}     Commit build output (branch specified by {{--onto}}).
-  {{--onto BRANCH}}   Branch to commit build results to, created if
-                  necessary ("{{deploy}}", by default).
+  {{--onto BRANCH}}   Branch to commit build results to, created if necessary ("{{deploy}}", by default).
