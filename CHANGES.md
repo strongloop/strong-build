@@ -1,3 +1,9 @@
+2016-05-06, Version 2.1.2
+=========================
+
+ * update copyright notices and license (Ryan Graham)
+
+
 2016-04-11, Version 2.1.1
 =========================
 
