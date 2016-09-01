@@ -39,7 +39,8 @@
   },
   "devDependencies": {
     "async": "^2.0.1",
-    "eslint": "^1.0.0",
+    "eslint": "^2.13.1",
+    "eslint-config-strongloop": "^2.1.0",
     "tap": "^0.7.1",
     "tar": "^2.1.1"
   }
