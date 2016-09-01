@@ -38,7 +38,7 @@
     "vasync": "^1.4.3"
   },
   "devDependencies": {
-    "async": "^0.9.0",
+    "async": "^2.0.1",
     "eslint": "^1.0.0",
     "tap": "^0.7.1",
     "tar": "^2.1.1"
