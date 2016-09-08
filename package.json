@@ -41,7 +41,7 @@
     "async": "^2.0.1",
     "eslint": "^2.13.1",
     "eslint-config-strongloop": "^2.1.0",
-    "tap": "^0.7.1",
+    "tap": "^7.0.0",
     "tar": "^2.1.1"
   }
 }
