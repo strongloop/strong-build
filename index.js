@@ -3,6 +3,8 @@
 // This file is licensed under the Artistic License 2.0.
 // License text available at https://opensource.org/licenses/Artistic-2.0
 
+'use strict';
+
 var Parser = require('posix-getopt').BasicParser;
 var debug = require('debug')('strong-build');
 var fmt = require('util').format;
@@ -68,19 +70,18 @@ exports.build = function build(argv, callback) {
     'slc ' + process.env.SLC_COMMAND :
     path.basename(argv[1]);
   var parser = new Parser([
-      ':v(version)',
-      'h(help)',
-      'n(npm)',
-      'g(git)',
-      's(scripts)',
-      'i(install)',
-      'b(bundle)',
-      'p(pack)',
-      'O:(onto)',
-      'c(commit)',
-      'N(no-commit)',
-    ].join(''),
-    argv);
+    ':v(version)',
+    'h(help)',
+    'n(npm)',
+    'g(git)',
+    's(scripts)',
+    'i(install)',
+    'b(bundle)',
+    'p(pack)',
+    'O:(onto)',
+    'c(commit)',
+    'N(no-commit)',
+  ].join(''), argv);
   var option;
   var onto = 'deploy';
   var install;
